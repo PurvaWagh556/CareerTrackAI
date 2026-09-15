@@ -40,7 +40,7 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
   })
 );
-app.use(express.static(path.join(__dirname, "../Frontend/careertrack-ai/dist")));
+app.use(express.static(path.resolve(__dirname, "../Frontend/careertrack-ai/dist")));
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(passport.initialize());
