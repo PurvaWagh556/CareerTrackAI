@@ -42,6 +42,7 @@ app.use(cors({
 );
 console.log("Current __dirname:", __dirname);
 console.log("Resolved static path:", path.resolve(__dirname, "../Frontend/careertrack-ai/dist"));
+
 app.use(express.static(path.resolve(__dirname, "../Frontend/careertrack-ai/dist")));
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
@@ -326,7 +327,7 @@ app.get("/api/support", async (req, res) => {
 });
 
 app.get(/^(?!\/api).*/, (req, res) => {
-  res.sendFile(path.join(__dirname, "../Frontend/careertrack-ai/dist/index.html"));
+  res.sendFile(path.join(distPath, "index.html"));
 });
 // Connect to MongoDB & Start Server
 mongoose.connect(process.env.MONGODB_URI)
