@@ -322,6 +322,10 @@ app.get("/api/support", async (req, res) => {
     res.status(500).json({ success: false, error: "Failed to fetch tickets" });
   }
 });
+
+app.get(/^(?!\/api).*/, (req, res) => {
+  res.sendFile(path.join(__dirname, "../Frontend/careertrack-ai/dist/index.html"));
+});
 // Connect to MongoDB & Start Server
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
