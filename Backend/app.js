@@ -40,6 +40,7 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
   })
 );
+app.use(express.static(path.join(__dirname, "Frontend/careertrack-ai/dist")));
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(passport.initialize());
@@ -321,7 +322,9 @@ app.get("/api/support", async (req, res) => {
     res.status(500).json({ success: false, error: "Failed to fetch tickets" });
   }
 });
-
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "Frontend/careertrack-ai/dist/index.html"));
+});
 // Connect to MongoDB & Start Server
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
