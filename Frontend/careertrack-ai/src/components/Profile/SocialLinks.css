@@ -1,0 +1,32 @@
+.social-icon {
+  color: #ec4899;
+}
+
+.social-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.social-platform-icon {
+  color: #94a3b8;
+}
+
+.social-label {
+  color: #94a3b8;
+  width: 75px;
+}
+
+.social-val {
+  color: #6366f1;
+  font-weight: 500;
+  margin-left: auto;
+  text-align: right;
+}

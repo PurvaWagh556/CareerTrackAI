@@ -1,0 +1,63 @@
+.graph-card {
+  border-radius: 20px;
+  padding: 24px;
+  height: 310px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 1px;
+  transition: background-color 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+body.light-mode .graph-card {
+  background: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+}
+
+body.light-mode .graph-card h2 {
+  color: #0F172A !important;
+}
+
+body.light-mode .recharts-default-tooltip {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 12px !important;
+  color: #0F172A !important;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+body:not(.light-mode) .graph-card {
+  background: #18181B !important;
+  border-color: #27272A !important;
+}
+
+body:not(.light-mode) .graph-card h2 {
+  color: #F4F4F5 !important;
+}
+
+body:not(.light-mode) .recharts-default-tooltip {
+  background-color: #18181B !important;
+  border: 1px solid #27272A !important;
+  border-radius: 12px !important;
+  color: #F4F4F5 !important;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+.graph-card.dashboard-card:hover {
+  border-color: #8B5CF6 !important;
+  box-shadow: 0 6px 35px rgba(139, 92, 246, 0.25) !important;
+  transform: none !important;
+}
+
+.graph-card h2 {
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0;
+}
+
+.chart-wrapper {
+  flex: 1;
+  width: 100%;
+}

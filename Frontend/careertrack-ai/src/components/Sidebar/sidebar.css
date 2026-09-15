@@ -1,0 +1,139 @@
+.sidebar {
+  width: 280px;
+  background: #111827;
+  border-right: 1px solid #27272a;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: 0.35s ease;
+  box-sizing: border-box;
+}
+
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+.sidebar h2 {
+  font-size: 24px;
+  margin-bottom: 40px;
+  color: white;
+}
+
+.sidebar h2 span {
+  color: #8b5cf6;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+}
+
+.logo span {
+  color: #8b5cf6;
+}
+
+.logo-icon {
+  color: #8b5cf6;
+  font-size: 28px;
+  filter: drop-shadow(0 0 0 rgba(34, 211, 238, 0.7));
+  transition: filter 0.3s ease;
+}
+
+.logo-icon:hover {
+  filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.7));
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px;
+  border-radius: 10px;
+  color: #a1a1aa;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.menu-item:hover {
+  background: #1f1f23;
+  color: white;
+}
+
+.menu-item svg {
+  width: 20px;
+  height: 20px;
+}
+
+.bottom-menu {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sidebar-wrapper {
+  width: 280px;
+  flex-shrink: 0;
+}
+
+.sidebar-banner {
+  margin-top: auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-bottom: 20px !important;
+  padding: 16px !important;
+  border-radius: 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+}
+
+.sidebar-banner:hover {
+  transform: none !important;
+  border-color: #8B5CF6 !important;
+  box-shadow: 0px 8px 25px rgba(139, 92, 246, 0.2) !important;
+  cursor: pointer;
+}
+
+.sidebar-banner .banner-icon {
+  background: rgba(139, 92, 246, 0.15) !important;
+  color: #8B5CF6 !important;
+  padding: 10px !important;
+  border-radius: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+body:not(.light-mode) .sidebar-banner {
+  background-color: #121217 !important;
+  border: 1px solid #27272A !important;
+  color: #A1A1AA !important;
+}
+
+body.light-mode .sidebar-banner {
+  background-color: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #64748B !important;
+}

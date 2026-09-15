@@ -1,0 +1,2893 @@
+/* =========================================
+   COMPLETE LIGHT MODE STYLESHEET (lightmode.css)
+   ========================================= */
+
+body.light-mode {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+  font-family: 'Inter', sans-serif;
+}
+
+/* --- Typography --- */
+body.light-mode h1, body.light-mode h2, body.light-mode h3, 
+body.light-mode h4, body.light-mode h5, body.light-mode h6,
+body.light-mode .profile-name, body.light-mode .greeting-text {
+  color: #0F172A !important;
+}
+
+body.light-mode p, body.light-mode .profile-role, 
+body.light-mode span, body.light-mode .sub-text,
+body.light-mode label {
+  color: #64748B !important;
+}
+
+/* --- Navbar, Sidebar & Layout Borders --- */
+body.light-mode .sidebar {
+  background-color: #FFFFFF !important;
+  border-right: 1px solid #E2E8F0 !important;
+}
+
+body.light-mode .navbar {
+  background-color: #FFFFFF !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.04) !important;
+  padding-left: 24px !important;
+}
+
+body.light-mode .dashboard-layout,
+body.light-mode .layout {
+  border-color: #E2E8F0 !important;
+}
+
+/* --- Sidebar Navigation Items & Hover/Active --- */
+body.light-mode .sidebar .menu-item,
+body.light-mode .sidebar a,
+body.light-mode .sidebar li {
+  color: #0F172A !important;
+}
+
+body.light-mode .sidebar .menu-item:hover,
+body.light-mode .sidebar a:hover,
+body.light-mode .sidebar li:hover,
+body.light-mode .sidebar .menu-item.active,
+body.light-mode .sidebar a.active,
+body.light-mode .sidebar li.active {
+  background-color: #F3F0FF !important;
+  color: #6D28D9 !important;
+  border-radius: 12px !important;
+}
+
+body.light-mode .sidebar .menu-item:hover p,
+body.light-mode .sidebar .menu-item:hover span,
+body.light-mode .sidebar .menu-item:hover svg,
+body.light-mode .sidebar a:hover svg,
+body.light-mode .sidebar li:hover svg,
+body.light-mode .sidebar .menu-item.active p,
+body.light-mode .sidebar .menu-item.active svg,
+body.light-mode .sidebar a.active svg {
+  color: #6D28D9 !important;
+}
+
+/* --- Sidebar Toggle Button --- */
+body.light-mode .navbar .sidebar-toggle,
+body.light-mode .navbar-left button {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #0F172A !important;
+  padding: 8px !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+body.light-mode .navbar .sidebar-toggle:hover {
+  background-color: #F1F5F9 !important;
+}
+
+body.light-mode .navbar .sidebar-toggle svg {
+  color: #0F172A !important;
+}
+
+/* --- Search Bar & Bulletproof Input Override --- */
+body.light-mode .search,
+body.light-mode .search-bar {
+  background-color: #F1F5F9 !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 15px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 8px 16px !important;
+  box-sizing: border-box !important;
+  box-shadow: none !important;
+  transition: all 0.2s ease !important;
+}
+
+body.light-mode .search:hover,
+body.light-mode .search-bar:hover {
+  border-color: #7C3AED !important;
+}
+
+body.light-mode .search:focus-within,
+body.light-mode .search-bar:focus-within {
+  background-color: #FFFFFF !important;
+  border-color: #7C3AED !important;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15) !important;
+}
+
+body.light-mode .navbar .search input,
+body.light-mode .search-bar input,
+body.light-mode .search input[type="text"],
+body.light-mode input[type="search"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-appearance: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+  color: #0F172A !important;
+}
+
+body.light-mode .search input::placeholder,
+body.light-mode .search-bar input::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* --- Search Dropdown --- */
+body.light-mode .search-dropdown,
+body.light-mode .search-results-dropdown,
+body.light-mode div[class*="search-dropdown"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.08) !important;
+  border-radius: 16px !important;
+  padding: 8px !important;
+}
+
+body.light-mode .search-dropdown-item,
+body.light-mode .search-result-item,
+body.light-mode div[class*="search"] .dropdown-item {
+  background-color: transparent !important;
+  border-radius: 12px !important;
+  padding: 10px 14px !important;
+  margin-bottom: 4px !important;
+  transition: all 0.2s ease !important;
+}
+
+body.light-mode .search-dropdown-item:hover,
+body.light-mode .search-result-item:hover,
+body.light-mode div[class*="search"] .dropdown-item:hover {
+  background-color: #F3F0FF !important;
+  color: #6D28D9 !important;
+}
+
+body.light-mode .search-dropdown-item:hover *,
+body.light-mode .search-result-item:hover *,
+body.light-mode div[class*="search"] .dropdown-item:hover * {
+  color: #6D28D9 !important;
+}
+
+/* --- Profile Section & Dropdowns --- */
+body.light-mode .nav-profile {
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  border-radius: 30px !important;
+  padding: 6px 10px !important;
+}
+
+body.light-mode .nav-profile:hover {
+  background-color: #F1F5F9 !important;
+}
+
+body.light-mode .dropdown-menu,
+body.light-mode .bell-dropdown-menu,
+body.light-mode .help-dropdown-menu,
+body.light-mode .profile-dropdown-menu {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1) !important;
+  color: #0F172A !important;
+}
+
+body.light-mode .dropdown-item:hover {
+  background-color: #F3F0FF !important;
+  color: #6D28D9 !important;
+}
+
+body.light-mode .dropdown-item:hover svg,
+body.light-mode .dropdown-item:hover span {
+  color: #6D28D9 !important;
+}
+
+/* --- Dashboard, Cards & Widgets --- */
+body.light-mode .dashboard {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+body.light-mode .dashboard-card,
+body.light-mode .stats-card,
+body.light-mode .skills-overview-card,
+body.light-mode .weekly-progress-card,
+body.light-mode .ai-suggestions-card,
+body.light-mode .overall-progress-card,
+body.light-mode .learning-roadmap-card,
+body.light-mode .welcome-banner,
+body.light-mode .overall-card,
+body.light-mode .banner-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03) !important;
+  border-radius: 16px !important;
+}
+
+body.light-mode .dashboard-card:hover,
+body.light-mode .stats-card:hover,
+body.light-mode .skills-overview-card:hover,
+body.light-mode .banner-card:hover {
+  border-color: #8B5CF6 !important;
+  box-shadow: 0px 6px 25px rgba(139, 92, 246, 0.15) !important;
+}
+
+/* --- General Inputs, Forms & Modals --- */
+body.light-mode input:not([type="checkbox"]):not([type="radio"]):not(.search input):not(.search-bar input), 
+body.light-mode select, 
+body.light-mode textarea {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #CBD5E1 !important;
+}
+
+body.light-mode input::placeholder, 
+body.light-mode textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+body.light-mode input:focus, 
+body.light-mode select:focus, 
+body.light-mode textarea:focus {
+  border-color: #7C3AED !important;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15) !important;
+  outline: none !important;
+}
+
+body.light-mode .modal-overlay, 
+body.light-mode .popup-overlay {
+  background-color: rgba(15, 23, 42, 0.5) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+body.light-mode .modal-content-box, 
+body.light-mode .popup-box {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1) !important;
+  color: #0F172A !important;
+}
+
+/* --- Tables, Badges & Tags --- */
+body.light-mode table {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+}
+
+body.light-mode th {
+  background-color: #F8FAFC !important;
+  color: #475569 !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+}
+
+body.light-mode td {
+  border-bottom: 1px solid #F1F5F9 !important;
+  color: #0F172A !important;
+}
+
+body.light-mode tr:hover td {
+  background-color: #F8FAFC !important;
+}
+
+body.light-mode .badge, 
+body.light-mode .tag, 
+body.light-mode .chip {
+  background-color: #F1F5F9 !important;
+  color: #475569 !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
+body.light-mode .badge.success, 
+body.light-mode .tag.completed {
+  background-color: rgba(16, 185, 129, 0.1) !important;
+  color: #059669 !important;
+  border-color: rgba(16, 185, 129, 0.2) !important;
+}
+
+body.light-mode .badge.warning, 
+body.light-mode .tag.in-progress {
+  background-color: rgba(245, 158, 11, 0.1) !important;
+  color: #D97706 !important;
+  border-color: rgba(245, 158, 11, 0.2) !important;
+}
+
+body.light-mode .badge.purple, 
+body.light-mode .tag.primary {
+  background-color: #F3F0FF !important;
+  color: #7C3AED !important;
+  border-color: #EBE9FE !important;
+}
+
+/* =========================================
+   CLEAN RESUME, DETAIL CARDS & WIDGETS
+   (Unified block without the aggressive hover)
+========================================= */
+body.light-mode div[style*="rgb(22, 22, 34)"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03) !important;
+  border-radius: 16px !important;
+}
+
+body.light-mode div[style*="rgb(22, 22, 34)"] h2,
+body.light-mode div[style*="rgb(22, 22, 34)"] h3 {
+  color: #0F172A !important;
+}
+
+body.light-mode div[style*="rgb(22, 22, 34)"] div[style*="fontSize: 48px"],
+body.light-mode div[style*="rgb(22, 22, 34)"] div[style*="font-size: 48px"] {
+  color: #434c61 !important;
+}
+
+body.light-mode div[style*="rgb(22, 22, 34)"] p {
+  color: #475569 !important;
+  line-height: 1.6 !important;
+}
+
+/* =========================================
+   WELCOME BANNER & OVERALL PROGRESS
+========================================= */
+body.light-mode .welcome-banner > div:nth-child(2) {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03) !important;
+}
+
+body.light-mode .welcome-banner > div:nth-child(2) h3 {
+  color: #0F172A !important;
+}
+
+body.light-mode .welcome-banner div[style*="position: absolute"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1) !important;
+  color: #0F172A !important;
+}
+
+body.light-mode .welcome-banner div[style*="position: absolute"] div[style*="fontSize: 20px"],
+body.light-mode .welcome-banner div[style*="position: absolute"] div[style*="font-size: 20px"] {
+  color: #0F172A !important;
+}
+
+body.light-mode .welcome-banner div[style*="position: absolute"] div[style*="borderTop"],
+body.light-mode .welcome-banner div[style*="position: absolute"] div[style*="border-top"] {
+  border-top: 1px solid #E2E8F0 !important;
+  color: #64748B !important;
+}
+
+body.light-mode .welcome-banner div[style*="borderRadius: 50%"],
+body.light-mode .welcome-banner div[style*="border-radius: 50%"] {
+  background-color: #F3F0FF !important;
+  border: 2px solid #7C3AED !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15) !important;
+}
+
+body.light-mode .overall-card div[style*="borderRadius: 50%"],
+body.light-mode .overall-card div[style*="border-radius: 50%"] {
+  background-color: #FFFFFF !important;
+}
+
+body.light-mode .overall-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03) !important;
+}
+
+body.light-mode .overall-card h3 {
+  color: #0F172A !important;
+}
+
+/* =========================================
+   CAROUSEL SCROLL BUTTONS
+========================================= */
+body.light-mode .scroll-btn {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #0F172A !important;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.2s ease !important;
+}
+
+body.light-mode .scroll-btn svg {
+  color: #0F172A !important;
+}
+
+body.light-mode .scroll-btn:hover {
+  background-color: #F3F0FF !important;
+  border-color: #E9D5FF !important;
+  color: #7C3AED !important;
+}
+
+body.light-mode .scroll-btn:hover svg {
+  color: #7C3AED !important;
+}
+
+/* =========================================
+   PLACEMENT CHECKLIST MODAL
+========================================= */
+body.light-mode div[style*="position: fixed"][style*="backdrop-filter"] {
+  background-color: rgba(15, 23, 42, 0.4) !important;
+}
+
+body.light-mode div[style*="max-width: 420px"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.08) !important;
+  color: #0F172A !important;
+}
+
+body.light-mode div[style*="max-width: 420px"] h3,
+body.light-mode div[style*="max-width: 420px"] strong {
+  color: #0F172A !important;
+}
+
+body.light-mode div[style*="max-width: 420px"] p {
+  color: #64748B !important;
+}
+
+body.light-mode div[style*="backgroundColor: #0D0D14"],
+body.light-mode div[style*="background-color: #0D0D14"] {
+  background-color: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+body.light-mode div[style*="backgroundColor: #0D0D14"] span,
+body.light-mode div[style*="background-color: #0D0D14"] span,
+body.light-mode div[style*="max-width: 420px"] .custom-scrollbar span {
+  color: #0F172A !important;
+}
+
+body.light-mode div[style*="max-width: 420px"] .custom-scrollbar div {
+  background-color: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+/* =========================================
+   AI LEARNING ROADMAP
+========================================= */
+body.light-mode .roadmap-card,
+body.light-mode .roadmap-page,
+body.light-mode .roadmap-empty-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03) !important;
+  color: #0F172A !important;
+}
+
+body.light-mode .roadmap-header h2,
+body.light-mode .roadmap-header p,
+body.light-mode .roadmap-page h2,
+body.light-mode .roadmap-page p {
+  color: #0F172A !important;
+}
+
+body.light-mode .step-card,
+body.light-mode .roadmap-timeline .roadmap-card {
+  background-color: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: none !important;
+  color: #0F172A !important;
+  transition: all 0.25s ease !important;
+}
+
+body.light-mode .step-card:hover {
+  border-color: #7C3AED !important;
+  box-shadow: 0px 8px 25px rgba(124, 58, 237, 0.12) !important;
+  transform: translateY(-2px);
+}
+
+body.light-mode .step-card h4,
+body.light-mode .roadmap-timeline .roadmap-card .phase-name {
+  color: #7C3AED !important;
+}
+
+body.light-mode .step-card p,
+body.light-mode .roadmap-timeline .roadmap-card .roadmap-title {
+  color: #0F172A !important;
+}
+
+body.light-mode .step-card ul li,
+body.light-mode .roadmap-timeline .roadmap-card .roadmap-desc {
+  color: #475569 !important;
+}
+
+body.light-mode .roadmap-tracks-bar {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+body.light-mode .track-btn {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #475569 !important;
+}
+
+body.light-mode .track-btn.active {
+  background-color: #F3F0FF !important;
+  border-color: #7C3AED !important;
+  color: #7C3AED !important;
+}
+
+body.light-mode .roadmap-progress-bar-bg {
+  background-color: #F1F5F9 !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
+body.light-mode .roadmap-progress-bar-fill {
+  background-color: #7C3AED !important;
+  border: none !important;
+}
+
+/* =========================================
+   BACK TO DASHBOARD BUTTON
+========================================= */
+body.light-mode button[style*="rgb(46, 46, 66)"],
+body.light-mode button[style*="2E2E42"] {
+  border: 1px solid #CBD5E1 !important;
+  color: #475569 !important;
+  background-color: #FFFFFF !important;
+  transition: all 0.2s ease !important;
+}
+
+body.light-mode button[style*="rgb(46, 46, 66)"]:hover,
+body.light-mode button[style*="2E2E42"]:hover {
+  border-color: #7C3AED !important;
+  color: #7C3AED !important;
+  background-color: #F8FAFC !important;
+}
+
+/* =========================================
+   STREAK CONTRIBUTIONS GRAPH & TOOLTIPS
+========================================= */
+body.light-mode div[style*="background-color: rgb(31, 31, 46)"],
+body.light-mode div[style*="background: rgb(31, 31, 46)"],
+body.light-mode div[style*="background-color: #1F1F2E"],
+body.light-mode div[style*="background: #1F1F2E"] {
+  background-color: #E2E8F0 !important;
+  border: none !important;
+  border-radius: 3px !important;
+}
+
+body.light-mode div[style*="overflow-x: auto"] ~ div[style*="background"],
+body.light-mode div[style*="overflow-x: auto"] div[style*="background: rgb(22, 22, 34)"],
+body.light-mode div[style*="overflow-x: auto"] div[style*="background-color: rgb(22, 22, 34)"],
+body.light-mode div[style*="background: rgb(22, 22, 34)"],
+body.light-mode div[style*="background-color: rgb(22, 22, 34)"],
+body.light-mode div[style*="background: #161622"] {
+  background-color: #F1F5F9 !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
+body.light-mode div[style*="position: absolute"][style*="pointer-events: none"],
+body.light-mode div[style*="position: absolute"][style*="min-width: 160px"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #7C3AED !important;
+  box-shadow: 0px 10px 25px rgba(124, 58, 237, 0.15) !important;
+}
+
+body.light-mode div[style*="position: absolute"][style*="pointer-events: none"] strong,
+body.light-mode div[style*="position: absolute"][style*="min-width: 160px"] strong {
+  color: #0F172A !important;
+}
+
+body.light-mode div[style*="overflow-x: auto"]::-webkit-scrollbar,
+body.light-mode div[style*="overflow-x: auto"] {
+  scrollbar-color: #CBD5E1 #F1F5F9 !important;
+}
+
+body.light-mode div[style*="overflow-x: auto"]::-webkit-scrollbar-track {
+  background: #F1F5F9 !important;
+  border-radius: 8px !important;
+}
+
+body.light-mode div[style*="overflow-x: auto"]::-webkit-scrollbar-thumb {
+  background: #CBD5E1 !important;
+  border-radius: 8px !important;
+}
+
+body.light-mode span[style*="background-color: rgb(42, 42, 60)"],
+body.light-mode span[style*="backgroundColor: #2A2A3C"] {
+  background-color: #F3F0FF !important;
+  border: 1px solid #7C3AED !important;
+  color: #7C3AED !important;
+}
+
+body.light-mode div[style*="max-width: 1100px"] div[style*="display: flex"] strong {
+  color: #0F172A !important;
+}
+
+/* =========================================
+   SKILLS HUB
+========================================= */
+body.light-mode a[style*="rgb(19, 16, 30)"],
+body.light-mode a[style*="13101E"],
+body.light-mode div[style*="rgb(19, 16, 30)"],
+body.light-mode div[style*="13101E"] {
+  background-color: #F8FAFC !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+body.light-mode a[style*="rgb(19, 16, 30)"] span,
+body.light-mode a[style*="13101E"] span,
+body.light-mode div[style*="rgb(19, 16, 30)"] span,
+body.light-mode div[style*="13101E"] span {
+  color: #0F172A !important;
+}
+
+body.light-mode span[style*="background: rgb(31, 31, 46)"],
+body.light-mode span[style*="background-color: rgb(31, 31, 46)"],
+body.light-mode span[style*="background: #1F1F2E"],
+body.light-mode span[style*="background-color: #1F1F2E"] {
+  background-color: #EEF2FF !important;
+  color: #7C3AED !important;
+}
+
+/* =========================================
+   WEEKLY PROGRESS & RECHARTS
+========================================= */
+body.light-mode .recharts-cartesian-grid-horizontal line,
+body.light-mode .recharts-cartesian-grid-vertical line {
+  stroke: #E2E8F0 !important;
+}
+
+body.light-mode .recharts-text.recharts-cartesian-axis-tick-value {
+  fill: #64748B !important;
+}
+
+body.light-mode .recharts-tooltip-wrapper {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+body.light-mode .recharts-default-tooltip {
+  background-color: #FFFFFF !important;
+  border: 1px solid #7C3AED !important;
+  border-radius: 12px !important;
+  box-shadow: 0px 10px 25px rgba(124, 58, 237, 0.15) !important;
+  padding: 10px 14px !important;
+}
+
+/* =========================================
+   AI RECOMMENDATIONS
+========================================= */
+.ai-suggestion-item {
+  background-color: #1F1F2E;
+  border: 1px solid #2E2E42;
+}
+
+body.light-mode .ai-recommendations-wrapper {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.03) !important;
+}
+
+body.light-mode .ai-suggestion-item {
+  background-color: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
+body.light-mode .ai-item-title {
+  color: #0F172A !important;
+}
+
+body.light-mode .ai-item-desc {
+  color: #64748B !important;
+}
+
+body.light-mode .ai-icon-box,
+body.light-mode div[style*="background: #2E2E42"],
+body.light-mode div[style*="background-color: #2E2E42"],
+body.light-mode div[style*="rgb(46, 46, 66)"] {
+  background: #EEF2FF !important;
+  background-color: #EEF2FF !important;
+  color: #7C3AED !important;
+}
+
+body.light-mode div[style*="background: #2E2E42"] svg,
+body.light-mode div[style*="background-color: #2E2E42"] svg,
+body.light-mode div[style*="rgb(46, 46, 66)"] svg {
+  color: #7C3AED !important;
+  stroke: #7C3AED !important;
+}
+
+
+/* =========================================
+   ABOUT PAGE CARD STYLING (DARK & LIGHT)
+========================================= */
+
+/* Default Dark Mode Styles */
+.about-content-card {
+  background-color: #161622;
+  border: 1px solid #2E2E42;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.about-title {
+  color: #FFFFFF;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.about-desc {
+  color: #9CA3AF;
+  line-height: 1.6;
+  font-size: 15px;
+  margin: 20px 0 24px 0;
+}
+
+.about-feature-title {
+  color: #FFFFFF;
+  margin: 0 0 6px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.about-feature-text {
+  color: #9CA3AF;
+  line-height: 1.5;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Light Mode Overrides */
+body.light-mode .about-content-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03) !important;
+}
+
+body.light-mode .about-title,
+body.light-mode .about-feature-title {
+  color: #0F172A !important;
+}
+
+body.light-mode .about-desc,
+body.light-mode .about-feature-text {
+  color: #475569 !important;
+}
+/* =========================================
+   ABOUT PAGE: CONNECT SECTION LIGHT MODE FIX
+========================================= */
+
+/* 1. Strip the accidental wildcard background and lighten the top separator line */
+body.light-mode .about-content-card > div:last-child {
+  background-color: transparent !important;
+  border-top: 1px solid #E2E8F0 !important;
+}
+
+/* 2. Fix the GitHub button border, background, and text for Light Mode */
+body.light-mode .about-content-card a[href*="github.com"] {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #475569 !important;
+}
+
+body.light-mode .about-content-card a[href*="github.com"] svg {
+  color: #475569 !important;
+  fill: #475569 !important;
+}
+
+/* 3. GitHub button hover effect */
+body.light-mode .about-content-card a[href*="github.com"]:hover {
+  border-color: #7C3AED !important;
+  color: #7C3AED !important;
+  background-color: #F8FAFC !important;
+}
+
+body.light-mode .about-content-card a[href*="github.com"]:hover svg {
+  color: #7C3AED !important;
+  fill: #7C3AED !important;
+}
+
+/* 4. Force LinkedIn & Instagram buttons to keep crisp white text and icons */
+body.light-mode .about-content-card a[href*="linkedin.com"],
+body.light-mode .about-content-card a[href*="instagram.com"] {
+  color: #FFFFFF !important;
+}
+
+body.light-mode .about-content-card a[href*="linkedin.com"] svg,
+body.light-mode .about-content-card a[href*="instagram.com"] svg {
+  color: #FFFFFF !important;
+  fill: #FFFFFF !important;
+}
+/* =========================================
+   FAQS & GUIDES: CODE BADGE LIGHT MODE FIX
+========================================= */
+body.light-mode code[style*="#2E2E42"],
+body.light-mode code[style*="rgb(46, 46, 66)"] {
+  background: #EEF2FF !important;
+  background-color: #EEF2FF !important;
+  color: #7C3AED !important;
+  border: 1px solid #E9D5FF !important;
+}
+
+/* =========================================
+   PROJECT CARD & MODAL LIGHT MODE FIXES
+========================================= */
+
+/* 1. Strip the accidental background from the link container and lighten the divider line */
+body.light-mode div[style*="border-top: 1px solid rgb(46, 46, 66)"],
+body.light-mode div[style*="borderTop: 1px solid #2E2E42"],
+body.light-mode div[style*="padding-top: 16px"][style*="border-top"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-top: 1px solid #E2E8F0 !important;
+}
+
+/* 2. Deepen the Tech Stack badge text and background for readability */
+body.light-mode div[style*="rgba(124, 58, 237, 0.08)"] {
+  background-color: #F3F0FF !important;
+  color: #6D28D9 !important;
+}
+
+body.light-mode div[style*="rgba(124, 58, 237, 0.08)"] strong {
+  color: #5B21B6 !important;
+}
+
+/* 3. Darken the "Live Demo" and "Source Code" link colors */
+body.light-mode a[style*="rgb(167, 139, 250)"],
+body.light-mode a[style*="#A78BFA"] {
+  color: #6D28D9 !important;
+}
+
+body.light-mode a[style*="rgb(156, 163, 175)"],
+body.light-mode a[style*="#9CA3AF"] {
+  color: #475569 !important;
+}
+
+/* =========================================
+   MODAL PRIMARY BUTTON WILDCARD OVERRIDE
+========================================= */
+
+/* body.light-mode div[style*="rgb(22, 22, 34)"] button[style*="rgb(255, 255, 255)"], */
+body.light-mode div[style*="rgb(22, 22, 34)"] button[style*="#FFFFFF"],
+body.light-mode div[style*="#161622"] button[style*="rgb(255, 255, 255)"],
+body.light-mode div[style*="#161622"] button[style*="#FFFFFF"],
+body.light-mode .modal-content-box button[style*="#7C3AED"],
+body.light-mode .modal-content-box button[style*="rgb(124, 58, 237)"] {
+  color: #FFFFFF !important;
+}
+
+body.light-mode div[style*="rgb(22, 22, 34)"] button[style*="rgb(124, 58, 237)"] svg,
+body.light-mode div[style*="#161622"] button[style*="#7C3AED"] svg,
+body.light-mode .modal-content-box button svg {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+  fill: #FFFFFF !important;
+}
+/* =========================================
+   MODAL CLOSE BUTTON LIGHT MODE FIX
+========================================= */
+
+body.light-mode .modal-content-box button[style*="background: transparent"],
+body.light-mode .modal-content-box button[style*="background-color: transparent"] {
+  color: #475569 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+body.light-mode .modal-content-box button[style*="background: transparent"] svg,
+body.light-mode .modal-content-box button[style*="background-color: transparent"] svg {
+  color: #475569 !important;
+  stroke: #475569 !important;
+}
+
+body.light-mode .modal-content-box button[style*="background: transparent"]:hover svg,
+body.light-mode .modal-content-box button[style*="background-color: transparent"]:hover svg {
+  color: #7C3AED !important;
+  stroke: #7C3AED !important;
+}
+
+/* =========================================
+   GOALS PAGE LIGHT MODE STYLES
+========================================= */
+
+body.light-mode .goals-page {
+  background-color: #F8FAFC !important;
+}
+
+body.light-mode .goals-header h2 {
+  color: #0F172A !important;
+}
+
+body.light-mode .goals-header p,
+body.light-mode .goals-empty-state {
+  color: #475569 !important;
+}
+
+body.light-mode .goals-stat-card,
+body.light-mode .goal-card {
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03) !important;
+}
+
+body.light-mode .stat-title {
+  color: #64748B !important;
+}
+
+body.light-mode .stat-value,
+body.light-mode .goal-title {
+  color: #0F172A !important;
+}
+
+body.light-mode .filter-btn {
+  border: 1px solid #CBD5E1 !important;
+  color: #475569 !important;
+  background: #FFFFFF !important;
+}
+
+body.light-mode .filter-btn:hover {
+  background: #F1F5F9 !important;
+  color: #0F172A !important;
+}
+
+body.light-mode .filter-btn.active {
+  background: #7C3AED !important;
+  color: #FFFFFF !important;
+  border-color: #7C3AED !important;
+}
+
+/* Modals & Inputs in Light Mode */
+body.light-mode .modal-content-box {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light-mode .modal-title-text {
+  color: #0F172A !important;
+}
+
+body.light-mode .modal-label,
+body.light-mode .modal-desc {
+  color: #475569 !important;
+}
+
+body.light-mode .modal-input {
+  background-color: #F8FAFC !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+body.light-mode .close-btn {
+  color: #64748B !important;
+}
+
+body.light-mode .close-btn:hover {
+  color: #7C3AED !important;
+}
+
+body.light-mode .btn-cancel {
+  border: 1px solid #CBD5E1 !important;
+  color: #475569 !important;
+  background: transparent !important;
+}
+
+body.light-mode .btn-cancel:hover {
+  background: #F1F5F9 !important;
+  color: #0F172A !important;
+}
+
+
+/* =========================================
+   VIEW PROFILE PAGE & NOTES WORKSPACE LIGHT MODE
+========================================= */
+
+/* 1. Main Page Wrapper */
+body.light-mode .profile-page {
+  background-color: #F8FAFC !important;
+}
+
+/* 2. Cards and Containers */
+body.light-mode div[style*="backgroundColor: #12131a"],
+body.light-mode div[style*="background-color: #12131a"],
+body.light-mode div[style*="background: #12131a"] {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* 3. Sidebar and Inner Note Cards */
+body.light-mode div[style*="backgroundColor: #1a1c29"],
+body.light-mode div[style*="background-color: #1a1c29"] {
+  background-color: #F8FAFC !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+body.light-mode div[style*="backgroundColor: #1a1c29"]:hover {
+  background-color: #F1F5F9 !important;
+}
+
+/* 4. Top Toolbar and Navigation */
+body.light-mode div[style*="backgroundColor: #161821"],
+body.light-mode div[style*="background-color: #161821"] {
+  background-color: #F1F5F9 !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+}
+
+/* 5. Main Editor Pane */
+body.light-mode div[style*="backgroundColor: #0b0c10"],
+body.light-mode div[style*="background-color: #0b0c10"] {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+}
+
+/* 6. Text Inputs and Search Boxes */
+body.light-mode input[style*="backgroundColor: #1a1c29"],
+body.light-mode input[style*="background-color: #1a1c29"],
+body.light-mode select[style*="backgroundColor: #1a1c29"],
+body.light-mode select[style*="background-color: #1a1c29"],
+body.light-mode input[style*="backgroundColor: transparent"] {
+  color: #0F172A !important;
+}
+
+body.light-mode input::placeholder,
+body.light-mode textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* 7. Modals & Confirmation Boxes */
+body.light-mode div[style*="backgroundColor: #161622"],
+body.light-mode div[style*="background-color: #161622"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #0F172A !important;
+  box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 8. Text Colors for Titles and Snippets */
+body.light-mode h3[style*="color: rgb(255, 255, 255)"],
+body.light-mode h3[style*="color: #ffffff"],
+body.light-mode span[style*="color: rgb(255, 255, 255)"],
+body.light-mode span[style*="color: #ffffff"] {
+  color: #0F172A !important;
+}
+
+body.light-mode p[style*="color: #9ca3af"],
+body.light-mode span[style*="color: #9ca3af"] {
+  color: #475569 !important;
+}
+
+/* =========================================
+   ACADEMIC DETAILS CARD LIGHT MODE FIXES
+========================================= */
+
+body.light-mode .profile-card.info-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03) !important;
+  color: #0F172A !important;
+}
+
+body.light-mode .profile-card.info-card h3 {
+  color: #0F172A !important;
+}
+
+body.light-mode .profile-card.info-card .info-label {
+  color: #64748B !important;
+}
+
+body.light-mode .profile-card.info-card .info-value {
+  color: #0F172A !important;
+}
+/* =========================================
+   ACTIVITY CHART LIGHT MODE STYLES
+========================================= */
+
+body.light-mode div[style*="backgroundColor: #12131a"],
+body.light-mode div[style*="background-color: #12131a"] {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03) !important;
+}
+
+body.light-mode span[style*="color: #c084fc"] {
+  color: #7C3AED !important;
+}
+
+body.light-mode select[style*="backgroundColor: #1a1c29"],
+body.light-mode select[style*="background-color: #1a1c29"] {
+  background-color: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
+  color: #7C3AED !important;
+}
+
+body.light-mode div[style*="backgroundColor: #1a1c29"],
+body.light-mode div[style*="background-color: #1a1c29"] {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.05) !important;
+}
+
+body.light-mode span[style*="color: #ffffff"],
+body.light-mode span[style*="color: rgb(255, 255, 255)"] {
+  color: #0F172A !important;
+}
+
+body.light-mode span[style*="color: #9ca3af"],
+body.light-mode span[style*="color: rgb(156, 163, 175)"] {
+  color: #64748B !important;
+}
+
+body.light-mode div[style*="border-top: 1px solid #2a2d3d"],
+body.light-mode div[style*="borderTop: 1px solid #2a2d3d"] {
+  border-top: 1px solid #E2E8F0 !important;
+}
+
+body.light-mode button[style*="backgroundColor: #1a1c29"],
+body.light-mode button[style*="background-color: #1a1c29"] {
+  background-color: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
+  color: #7C3AED !important;
+}
+
+body.light-mode button[style*="backgroundColor: #1a1c29"]:hover {
+  background-color: #F1F5F9 !important;
+}
+/* =========================================
+   CERTIFICATES COMPONENT LIGHT MODE STYLES
+========================================= */
+
+/* 1. Main Certificates Card container */
+body.light-mode .profile-card.certificates-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03) !important;
+  color: #0F172A !important;
+}
+
+body.light-mode .certificates-card h3 {
+  color: #0F172A !important;
+}
+
+/* 2. Individual Certificate items / preview boxes */
+body.light-mode .cert-box {
+  background-color: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+body.light-mode .cert-title {
+  color: #0F172A !important;
+}
+
+body.light-mode .cert-issuer {
+  color: #64748B !important;
+}
+
+/* 3. View All link */
+body.light-mode .view-all-link {
+  color: #7C3AED !important;
+}
+
+/* 4. Search input fields inside modals */
+body.light-mode .modal-content-box input[type="text"] {
+  background-color: #F8FAFC !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+body.light-mode .modal-content-box input[type="text"]::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* 5. List items inside the "View All" modal drawer */
+body.light-mode .modal-content-box div[style*="backgroundColor: #0D0D14"],
+body.light-mode .modal-content-box div[style*="background-color: #0D0D14"] {
+  background-color: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
+body.light-mode .modal-content-box strong[style*="color: #FFFFFF"] {
+  color: #0F172A !important;
+}
+/* =========================================
+   SOCIAL LINKS LIGHT MODE STYLES
+========================================= */
+
+body.light-mode .profile-card div[style*="backgroundColor: #12131a"],
+body.light-mode div[class*="profile-card"] {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03) !important;
+}
+
+body.light-mode div[style*="backgroundColor: #1a1c29"],
+body.light-mode div[style*="background-color: #1a1c29"] {
+  background-color: #F8FAFC !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+body.light-mode span[style*="color: #ffffff"],
+body.light-mode h3[style*="color: #ffffff"] {
+  color: #0F172A !important;
+}
+
+body.light-mode a[style*="color: #a78bfa"] {
+  color: #7C3AED !important;
+}
+
+body.light-mode p[style*="color: #9ca3af"] {
+  color: #64748B !important;
+}
+/* =========================================
+   SOCIAL LINKS LIGHT MODE CLASS OVERRIDES
+========================================= */
+
+body.light-mode .social-links-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #0F172A !important;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03) !important;
+}
+
+body.light-mode .social-links-card h3 {
+  color: #0F172A !important;
+}
+
+body.light-mode .social-link-row {
+  background-color: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
+body.light-mode .social-link-label {
+  color: #0F172A !important;
+}
+
+body.light-mode .social-link-url {
+  color: #7C3AED !important;
+}
+
+/* =========================================
+   TOP SKILLS COMPONENT LIGHT MODE STYLES
+========================================= */
+
+body.light-mode div[style*="width: 100%"][style*="backgroundColor: #12131a"],
+body.light-mode div[style*="width: 100%"][style*="background-color: #12131a"] {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03) !important;
+}
+
+body.light-mode span[style*="fontSize: 16px"][style*="fontWeight: 700"] {
+  color: #0F172A !important;
+}
+
+body.light-mode div[style*="backgroundColor: #1a1c29"],
+body.light-mode div[style*="background-color: #1a1c29"] {
+  background-color: #F8FAFC !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.02) !important;
+}
+
+body.light-mode div[style*="backgroundColor: #1a1c29"] span {
+  color: #0F172A !important;
+}
+
+body.light-mode p[style*="fontSize: 13px"][style*="color: #9ca3af"] {
+  color: #64748B !important;
+}
+/* =========================================
+   UNIVERSAL LIGHT MODE MASTER OVERRIDE
+========================================= */
+
+/* 1. Force the entire page and root container to light mode */
+body.light-mode,
+body.light-mode #root {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+/* 2. Intercept ANY element with dark inline backgrounds and make them white/light */
+
+
+/* 3. Catch nested dark containers, cards, sidebars, and rows */
+body.light-mode div[style*="background-color: #12131a"],
+body.light-mode div[style*="backgroundColor: #12131a"],
+body.light-mode div[style*="background-color: #161622"],
+body.light-mode div[style*="backgroundColor: #161622"],
+body.light-mode div[style*="background-color: #1a1c29"],
+body.light-mode div[style*="backgroundColor: #1a1c29"],
+body.light-mode div[style*="background-color: #121218"],
+body.light-mode div[style*="backgroundColor: #121218"],
+body.light-mode div[style*="background-color: #0D0D14"],
+body.light-mode div[style*="backgroundColor: #0D0D14"],
+body.light-mode div[style*="background-color: #0b0c10"],
+body.light-mode div[style*="backgroundColor: #0b0c10"],
+body.light-mode div[style*="background-color: #161821"],
+body.light-mode div[style*="backgroundColor: #161821"] {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* 4. Force sub-containers, inner rows, and toolbars to soft light grey */
+body.light-mode div[style*="background-color: #1a1c29"] div,
+body.light-mode div[style*="backgroundColor: #1a1c29"] div,
+body.light-mode div[style*="background-color: #161622"] div,
+body.light-mode div[style*="backgroundColor: #161622"] div {
+  background-color: transparent !important;
+}
+
+/* 5. Force all text colors inside cards and modals to crisp dark slate */
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode strong,
+body.light-mode span[style*="color: #ffffff"],
+body.light-mode span[style*="color: rgb(255, 255, 255)"] {
+  color: #0F172A !important;
+}
+
+body.light-mode p,
+body.light-mode span,
+body.light-mode label,
+body.light-mode span[style*="color: #9ca3af"],
+body.light-mode span[style*="color: rgb(156, 163, 175)"] {
+  color: #475569 !important;
+}
+
+/* 6. Form inputs, textareas, and dropdowns */
+body.light-mode input,
+body.light-mode select,
+body.light-mode textarea {
+  background-color: #F8FAFC !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+body.light-mode input::placeholder,
+body.light-mode textarea::placeholder {
+  color: #94A3B8 !important;
+}
+/* =========================================
+   UNIVERSAL LIGHT MODE BASE & CARDS
+========================================= */
+
+body.light-mode,
+body.light-mode #root {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+body.light-mode .profile-card,
+body.light-mode div[style*="backgroundColor: #12131a"],
+body.light-mode div[style*="background-color: #12131a"],
+body.light-mode div[style*="backgroundColor: #1a1c29"],
+body.light-mode div[style*="background-color: #1a1c29"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #0F172A !important;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* =========================================
+   PROFILE HEADER & ACTION BUTTONS
+========================================= */
+
+body.light-mode .profile-header-wrapper div[style*="border"],
+body.light-mode .profile-header-wrapper [style*="border:"] {
+  border-color: #E2E8F0 !important;
+}
+
+body.light-mode .profile-header-wrapper input,
+body.light-mode .profile-header-wrapper button {
+  border: 1px solid #CBD5E1 !important;
+}
+
+/* Share Profile Button (Solid Purple) */
+body.light-mode button.share-profile-btn,
+body.light-mode .profile-header-wrapper button[style*="backgroundColor: #7C3AED"],
+body.light-mode .profile-header-wrapper button[style*="background-color: #7C3AED"] {
+  background-color: #7C3AED !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4) !important;
+}
+
+body.light-mode button.share-profile-btn span,
+body.light-mode button.share-profile-btn svg,
+body.light-mode div[style*="display: flex"][style*="gap: 12px"] button:last-child span,
+body.light-mode div[style*="display: flex"][style*="gap: 12px"] button:last-child svg {
+  color: #FFFFFF !important;
+}
+
+body.light-mode button.share-profile-btn:hover {
+  background-color: #6D28D9 !important;
+  color: #FFFFFF !important;
+}
+
+/* Edit Profile Button */
+body.light-mode div[style*="display: flex"][style*="gap: 12px"] button:first-child {
+  background-color: #F8FAFC !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+body.light-mode div[style*="display: flex"][style*="gap: 12px"] button:first-child:hover {
+  background-color: #F1F5F9 !important;
+}
+
+/* Profile Avatar Purple Border */
+body.light-mode div[style*="width: 80px"][style*="borderRadius: 50%"],
+body.light-mode div[style*="width: 80px"][style*="border-radius: 50%"] {
+  border: 2px solid #7C3AED !important;
+}
+
+/* =========================================
+   RESUME CARD OVERRIDES
+========================================= */
+
+body.light-mode .resume-card-container {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+body.light-mode .resume-title-text {
+  color: #0F172A !important;
+}
+
+body.light-mode .resume-action-btn {
+  background-color: #F8FAFC !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #7C3AED !important;
+}
+
+body.light-mode .resume-file-card {
+  background-color: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
+body.light-mode .resume-file-name {
+  color: #0F172A !important;
+}
+
+body.light-mode .resume-file-sub {
+  color: #64748B !important;
+}
+
+body.light-mode .resume-download-btn {
+  background-color: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+body.light-mode .resume-empty-state {
+  border: 2px dashed #CBD5E1 !important;
+  background-color: #F8FAFC !important;
+}
+
+body.light-mode .resume-empty-text {
+  color: #0F172A !important;
+}
+
+body.light-mode .resume-empty-sub {
+  color: #64748B !important;
+}
+
+/* =========================================
+   TOP SKILLS CARD OVERRIDES
+========================================= */
+
+body.light-mode .top-skills-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+body.light-mode .top-skills-title {
+  color: #0F172A !important;
+}
+
+body.light-mode .top-skill-badge {
+  background-color: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #0F172A !important;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.02) !important;
+}
+
+body.light-mode .top-skill-text {
+  color: #0F172A !important;
+}
+
+body.light-mode .top-skills-empty {
+  color: #64748B !important;
+}
+/* =========================================
+   DAILY CHECK-IN WIDGET & CALENDAR
+========================================= */
+
+body.light-mode .calendar-widget-container {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.03) !important;
+}
+
+body.light-mode .calendar-title {
+  color: #0F172A !important;
+}
+
+body.light-mode .calendar-nav-btn {
+  background-color: #F8FAFC !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #0F172A !important; 
+}
+
+body.light-mode .calendar-day-cell {
+  color: #334155 !important;
+}
+
+/* Reset standard calendar circles */
+body.light-mode div[style*="borderRadius: 50%"] div[style*="border"],
+body.light-mode .calendar-container div[style*="border"],
+body.light-mode [class*="calendar"] div[style*="border"] {
+  border-color: #E2E8F0 !important;
+}
+
+/* Current Active Day Highlight */
+body.light-mode .calendar-day-current,
+body.light-mode div[style*="borderRadius: 50%"][style*="boxShadow"],
+body.light-mode div[style*="backgroundColor: #7C3AED"],
+body.light-mode div[style*="background-color: #7C3AED"] {
+  background-color: #7C3AED !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4) !important;
+}
+
+body.light-mode .calendar-day-current span,
+body.light-mode .calendar-day-current-text,
+body.light-mode div[style*="backgroundColor: #7C3AED"] *,
+body.light-mode div[style*="background-color: #7C3AED"] * {
+  color: #FFFFFF !important;
+}
+
+body.light-mode .calendar-pulse-box {
+  background-color: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
+body.light-mode .calendar-pulse-label {
+  color: #0F172A !important;
+}
+
+body.light-mode .calendar-streak-text {
+  color: #7C3AED !important;
+}
+
+body.light-mode .calendar-streak-sub {
+  color: #64748B !important;
+}
+
+body.light-mode button.calendar-details-btn,
+body.light-mode .streak-details-btn {
+  background-color: #F8FAFC !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #7C3AED !important;
+  padding: 6px 12px !important;
+  border-radius: 8px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+
+body.light-mode button.calendar-details-btn:hover,
+body.light-mode .streak-details-btn:hover {
+  background-color: #F1F5F9 !important;
+}
+
+/* =========================================
+   DEDICATED PROFILE SUMMARY LIGHT MODE CLASSES
+========================================= */
+
+body.light-mode .profile-action-btn {
+  background-color: #7C3AED !important;
+  color: #FFFFFF !important;
+}
+
+body.light-mode .profile-modal-box {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+body.light-mode .profile-modal-box h3 {
+  color: #0F172A !important;
+}
+
+body.light-mode .checklist-row {
+  background-color: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+body.light-mode .checklist-row span {
+  color: #0F172A !important;
+}
+
+body.light-mode button.btn-close,
+body.light-mode .btn-close {
+  background-color: #7C3AED !important;
+  color: #FFFFFF !important;
+}
+
+body.light-mode button.btn-close *,
+body.light-mode .btn-close * {
+  color: #FFFFFF !important;
+}
+
+/* =========================================
+   ACTIVITY CHART CARD & MODAL LIGHT MODE
+========================================= */
+
+/* Main Container & Modal Backgrounds */
+body.light-mode .activity-chart-container,
+body.light-mode div[style*="borderRadius: \"16px\""]:has(canvas),
+body.light-mode div[style*="border-radius: 16px"]:has(canvas),
+body.light-mode div:has(> canvas),
+body.light-mode .modal-content {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  color: #0F172A !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Headings & Text */
+body.light-mode .activity-chart-container h3,
+body.light-mode .activity-chart-container span,
+body.light-mode .activity-chart-container label,
+body.light-mode div:has(> canvas) h3,
+body.light-mode div:has(> canvas) span,
+body.light-mode .modal-content h3 {
+  color: #0F172A !important;
+}
+
+/* Dropdowns */
+body.light-mode .activity-chart-container select,
+body.light-mode div:has(> canvas) select {
+  background-color: #F8FAFC !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #7C3AED !important;
+}
+
+/* =========================================
+   GRAPH BARS FIX
+========================================= */
+
+body.light-mode .chart-bar-fill[data-active="true"] {
+  background-color: #7C3AED !important;
+}
+
+body.light-mode .chart-bar-fill[data-active="false"] {
+  background-color: transparent !important;
+}
+
+/* =========================================
+   CHART NAVIGATION ARROWS (Left & Right)
+========================================= */
+
+/* Base Styles & Override for Greedy Global :last-child */
+body.light-mode button.chart-nav-btn,
+body.light-mode div[style*="display: flex"] button.chart-nav-btn:last-child,
+body.light-mode .activity-chart-container button.chart-nav-btn:last-child {
+  background-color: #F8FAFC !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #0F172A !important;
+  box-shadow: none !important;
+}
+
+/* SVG Arrow Icons (Dark Slate) */
+body.light-mode button.chart-nav-btn svg,
+body.light-mode button.chart-nav-btn path,
+body.light-mode div[style*="display: flex"] button.chart-nav-btn:last-child svg,
+body.light-mode div[style*="display: flex"] button.chart-nav-btn:last-child path,
+body.light-mode .activity-chart-container button.chart-nav-btn:last-child svg {
+  color: #0F172A !important;
+  fill: #0F172A !important;
+}
+
+/* Hover States for Arrows */
+body.light-mode button.chart-nav-btn:hover,
+body.light-mode div[style*="display: flex"] button.chart-nav-btn:last-child:hover,
+body.light-mode .activity-chart-container button.chart-nav-btn:last-child:hover {
+  background-color: #E2E8F0 !important;
+  border: 1px solid #CBD5E1 !important;
+}
+
+/* Ensure Icons Stay Dark on Hover */
+body.light-mode button.chart-nav-btn:hover svg,
+body.light-mode button.chart-nav-btn:hover path,
+body.light-mode div[style*="display: flex"] button.chart-nav-btn:last-child:hover svg,
+body.light-mode div[style*="display: flex"] button.chart-nav-btn:last-child:hover path {
+  color: #0F172A !important;
+  fill: #0F172A !important;
+}
+
+/* =========================================
+   MODAL CLOSE BUTTONS & "X" ICON
+========================================= */
+
+/* Bottom 'Close' Button (Solid Purple) */
+body.light-mode button.btn-close,
+body.light-mode .btn-close {
+  background-color: #7C3AED !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+
+body.light-mode button.btn-close *,
+body.light-mode .btn-close * {
+  color: #FFFFFF !important;
+  fill: #FFFFFF !important;
+}
+
+/* Top Right 'X' Button Box */
+body.light-mode .modal-content button:not(.btn-close):not(.chart-nav-btn),
+body.light-mode div[style*="maxHeight: 90vh"] button:not(.btn-close):not(.chart-nav-btn) {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
+/* Top Right 'X' SVG Path (Dark Gray) */
+body.light-mode .modal-content button:not(.btn-close) svg,
+body.light-mode .modal-content button:not(.btn-close) path,
+body.light-mode div[style*="maxHeight: 90vh"] button:not(.btn-close) svg,
+body.light-mode div[style*="maxHeight: 90vh"] button:not(.btn-close) path {
+  color: #64748B !important;
+  fill: #64748B !important;
+  stroke: #64748B !important;
+}
+
+/* =========================================
+   CERTIFICATES MODAL DELETE BUTTON ONLY
+========================================= */
+
+/* Shield the .btn-view-cert from getting swallowed by the modal rule */
+body.light-mode .profile-card.certificates-card div > button + button:not(.btn-view-cert),
+body.light-mode .certificates-card div > button + button:not(.btn-view-cert) {
+  background-color: #7C3AED !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4) !important;
+}
+
+/* Keep the text inside the Modal Delete button white */
+body.light-mode .profile-card.certificates-card div > button + button:not(.btn-view-cert) *,
+body.light-mode .certificates-card div > button + button:not(.btn-view-cert) * {
+  color: #FFFFFF !important;
+}
+
+/* Hover state for the Modal Delete button */
+body.light-mode .profile-card.certificates-card div > button + button:not(.btn-view-cert):hover,
+body.light-mode .certificates-card div > button + button:not(.btn-view-cert):hover {
+  background-color: #6D28D9 !important;
+}
+
+
+/* =========================================
+   VIEW CERTIFICATE BUTTON (LIGHT MODE)
+========================================= */
+
+/* Restore the soft transparent background and force a darker purple text */
+body.light-mode button.btn-view-cert {
+  background-color: rgba(124, 58, 237, 0.1) !important;
+  border: 1px solid rgba(124, 58, 237, 0.2) !important;
+  color: #7C3AED !important; 
+}
+
+/* Ensure any spans or icons inside the view button also use the correct color */
+body.light-mode button.btn-view-cert * {
+  color: #7C3AED !important;
+}
+
+body.light-mode button.btn-view-cert:hover {
+  background-color: rgba(124, 58, 237, 0.2) !important;
+}
+
+/* =========================================
+   PLACEMENT READINESS "VIEW DETAILS" BUTTON
+========================================= */
+
+/* Overpower the global white-out rule for the progress card button */
+body.light-mode .overall-card .progress-details button,
+body.light-mode .progress-details button {
+  background-color: #7C3AED !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4) !important;
+}
+
+/* Ensure any internal text or arrows stay pure white */
+body.light-mode .overall-card .progress-details button *,
+body.light-mode .progress-details button * {
+  color: #FFFFFF !important;
+}
+
+/* Smooth hover state */
+body.light-mode .overall-card .progress-details button:hover,
+body.light-mode .progress-details button:hover {
+  background-color: #6D28D9 !important;
+}
+/* =========================================
+   AI STUDY SUGGESTIONS BUTTON FIX
+========================================= */
+
+body.light-mode .ai-card .ai-header .title button {
+  background-color: #7C3AED !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3) !important;
+}
+
+body.light-mode .ai-card .ai-header .title button * {
+  color: #FFFFFF !important;
+  fill: #FFFFFF !important;
+}
+
+body.light-mode .ai-card .ai-header .title button:hover {
+  background-color: #6D28D9 !important;
+}
+/* =========================================
+   ABOUT PAGE "BACK TO DASHBOARD" BUTTON
+========================================= */
+
+body.light-mode .about-page button {
+  background-color: #7C3AED !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3) !important;
+}
+
+/* Ensure the arrow icon stays pure white */
+body.light-mode .about-page button * {
+  color: #FFFFFF !important;
+  fill: #FFFFFF !important;
+}
+
+/* Smooth hover state */
+body.light-mode .about-page button:hover {
+  background-color: #6D28D9 !important;
+}
+/* =========================================
+   ABOUT PAGE SOCIAL LINKS FIX
+========================================= */
+
+body.light-mode .about-content-card a[href*="linkedin.com"],
+body.light-mode .about-content-card a[href*="instagram.com"] {
+  background-color: #7C3AED !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3) !important;
+}
+
+/* Ensure icons and text inside the links stay pure white */
+body.light-mode .about-content-card a[href*="linkedin.com"] *,
+body.light-mode .about-content-card a[href*="instagram.com"] * {
+  color: #FFFFFF !important;
+  fill: #FFFFFF !important;
+}
+
+/* Smooth hover state */
+body.light-mode .about-content-card a[href*="linkedin.com"]:hover,
+body.light-mode .about-content-card a[href*="instagram.com"]:hover {
+  background-color: #6D28D9 !important;
+}
+/* =========================================
+   FAQS PAGE "BACK TO DASHBOARD" BUTTON
+========================================= */
+
+body.light-mode .faqs-guides-section button {
+  background-color: #7C3AED !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3) !important;
+}
+
+/* Keep the back arrow and text pure white */
+body.light-mode .faqs-guides-section button * {
+  color: #FFFFFF !important;
+  fill: #FFFFFF !important;
+}
+
+/* Smooth hover state */
+body.light-mode .faqs-guides-section button:hover {
+  background-color: #6D28D9 !important;
+}
+/* =========================================
+   SKILLS & COMPETENCIES "ADD SKILL" BUTTON
+========================================= */
+
+/* Uses the exact DevTools path to overpower the global override */
+body.light-mode .dashboard-content > div > div > button,
+body.light-mode button.add-skill-btn {
+  background-color: #7C3AED !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3) !important;
+}
+
+/* Keep the plus icon and text pure white */
+/* body.light-mode .dashboard-content > div > div > button *,
+body.light-mode button.add-skill-btn * {
+  color: #FFFFFF !important;
+  fill: #FFFFFF !important;
+} */
+
+/* Smooth hover state */
+body.light-mode .dashboard-content > div > div > button:hover,
+body.light-mode button.add-skill-btn:hover {
+  background-color: #6D28D9 !important;
+}
+/* =========================================
+   DSA TRACKER: CLASS-BASED LIGHT MODE
+========================================= */
+
+/* --- 1. TOP-LEVEL FILTER BUTTONS (All, Solved, To Do) --- */
+/* Inactive Tab (#161622) */
+body.light-mode button[style*="161622" i] {
+  background-color: #F8FAFC !important;
+  color: #64748B !important;
+  border-color: #CBD5E1 !important;
+}
+/* Active Tab (#A78BFA) */
+body.light-mode button[style*="A78BFA" i] {
+  background-color: #7C3AED !important;
+  color: #FFFFFF !important;
+  border-color: #7C3AED !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3) !important;
+}
+
+/* --- 2. DSA TOPIC GRID BUTTONS (Using your new classes!) --- */
+/* Inactive Grid Buttons */
+body.light-mode .topic-grid-btn {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+}
+/* Inactive Button Text & Count Badge */
+body.light-mode .topic-grid-btn > span {
+  color: #0F172A !important;
+}
+body.light-mode .topic-grid-btn > div > span:first-child {
+  background-color: #F1F5F9 !important;
+  color: #475569 !important;
+}
+/* Inactive Button Hover */
+body.light-mode .topic-grid-btn:hover {
+  background-color: #F8FAFC !important;
+}
+
+/* Active Grid Button */
+body.light-mode .topic-grid-btn.active {
+  background-color: #7C3AED !important;
+  border: 1px solid #7C3AED !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3) !important;
+}
+/* Active Button Text & Percent */
+body.light-mode .topic-grid-btn.active > span,
+body.light-mode .topic-grid-btn.active > div > span:last-child {
+  color: #FFFFFF !important;
+}
+/* Active Transparent Count Badge */
+body.light-mode .topic-grid-btn.active > div > span:first-child {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  color: #FFFFFF !important;
+}
+
+/* --- 3. RESCUE HARDCODED WHITE TEXT IN STATS/TOTALS --- */
+body.light-mode div[style*="161622" i] [style*="FFFFFF" i] {
+  color: #0F172A !important;
+}
+body.light-mode div[style*="161622" i] [style*="9CA3AF" i] {
+  color: #64748B !important;
+}
+
+/* --- 4. TOPIC DETAILS VIEW --- */
+body.light-mode button[style*="transparent" i] { color: #7C3AED !important; }
+body.light-mode button[style*="0.15"] { color: #7C3AED !important; background-color: rgba(124, 58, 237, 0.1) !important; }
+body.light-mode a[style*="A78BFA" i] { color: #7C3AED !important; }
+body.light-mode a[style*="A78BFA" i] svg { stroke: #7C3AED !important; color: #7C3AED !important; }
+body.light-mode span[style*="14b8a6" i] { color: #0F766E !important; }
+body.light-mode span[style*="d97706" i] { color: #B45309 !important; }
+body.light-mode span[style*="dc2626" i] { color: #B91C1C !important; }
+body.light-mode svg[color*="6B7280" i] { color: #CBD5E1 !important; stroke: #CBD5E1 !important; }
+body.light-mode circle[stroke*="1E1E2F" i] { stroke: #E2E8F0 !important; }
+/* =========================================
+   SECTION 1: TOPIC GRID BUTTONS ONLY
+========================================= */
+
+/* A. DEFAULT / INACTIVE BUTTONS (White Card, Dark Text) */
+body.light-mode button.topic-grid-btn {
+  background-color: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+}
+
+body.light-mode button.topic-grid-btn > span {
+  color: #0F172A !important;
+}
+
+/* Default inner count badge (Grey) */
+body.light-mode button.topic-grid-btn > div > span:first-child {
+  background-color: #F1F5F9 !important;
+  color: #475569 !important;
+}
+
+/* B. ACTIVE BUTTON ONLY (Purple Card, White Text) */
+body.light-mode button.topic-grid-btn.active {
+  background-color: #7C3AED !important;
+  border: 1px solid #7C3AED !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3) !important;
+}
+
+body.light-mode button.topic-grid-btn.active > span {
+  color: #FFFFFF !important;
+}
+
+/* Active inner count badge (Transparent White) */
+body.light-mode button.topic-grid-btn.active > div > span:first-child {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  color: #FFFFFF !important;
+}
+body.light-mode button.topic-grid-btn.active > div > span:last-child {
+  color: #FFFFFF !important;
+}
+
+
+/* =========================================
+   SECTION 2: INVISIBLE STATS TEXT FIX
+========================================= */
+
+/* Rescues the white "267" and other hardcoded text inside the top stats container */
+body.light-mode div[style*="padding: 12px 20px"] div[style*="color: #FFFFFF" i],
+body.light-mode div[style*="padding: 12px 20px"] div[style*="rgb(255, 255, 255)"] {
+  color: #0F172A !important;
+}
+/* Targets the exact container using its unique padding (28px) */
+
+/* Inactive Buttons (White Card, Dark Text) */
+body.light-mode div[style*="padding: 28px"] button.topic-grid-btn {
+  background-color: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+}
+
+body.light-mode div[style*="padding: 28px"] button.topic-grid-btn > span {
+  color: #0F172A !important;
+}
+
+/* Inactive inner count badge */
+body.light-mode div[style*="padding: 28px"] button.topic-grid-btn > div > span:first-child {
+  background-color: #F1F5F9 !important;
+  color: #475569 !important;
+}
+
+/* Active Button (Purple Card, White Text) */
+body.light-mode div[style*="padding: 28px"] button.topic-grid-btn.active {
+  background-color: #7C3AED !important;
+  border: 1px solid #7C3AED !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3) !important;
+}
+
+body.light-mode div[style*="padding: 28px"] button.topic-grid-btn.active > span {
+  color: #FFFFFF !important;
+}
+
+/* Active inner count badges */
+body.light-mode div[style*="padding: 28px"] button.topic-grid-btn.active > div > span:first-child {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  color: #FFFFFF !important;
+}
+
+body.light-mode div[style*="padding: 28px"] button.topic-grid-btn.active > div > span:last-child {
+  color: #FFFFFF !important;
+}
+/* Targets the stats container using its unique padding (12px 20px) */
+body.light-mode div[style*="padding: 12px 20px"] div[style*="color: #FFFFFF" i],
+body.light-mode div[style*="padding: 12px 20px"] div[style*="rgb(255, 255, 255)"] {
+  color: #0F172A !important;
+}
+
+body.light-mode div[style*="padding: 12px 20px"] div[style*="9CA3AF" i],
+body.light-mode div[style*="padding: 12px 20px"] div[style*="156, 163, 175"] {
+  color: #64748B !important;
+}
+/* =========================================
+   SECTION 3: INACTIVE GRID PERCENTAGES & SHADOWS
+========================================= */
+
+/* 1. Remove the weird purple glow from inactive buttons and give them a crisp card shadow */
+body.light-mode div[style*="padding: 28px"] button.topic-grid-btn:not(.active) {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* 2. Fix the invisible percentage text (0%) by forcing it to dark slate grey */
+body.light-mode div[style*="padding: 28px"] button.topic-grid-btn:not(.active) > div > span:last-child {
+  color: #64748B !important;
+}
+
+/* 3. Darken the >0% green text so it is actually readable on the white background */
+body.light-mode div[style*="padding: 28px"] button.topic-grid-btn:not(.active) > div > span:last-child[style*="34D399" i],
+body.light-mode div[style*="padding: 28px"] button.topic-grid-btn:not(.active) > div > span:last-child[style*="52, 211, 153"] {
+  color: #059669 !important; 
+}
+/* =========================================
+   SECTION 4: HOVER EFFECT & ACTIVE TEXT FIX
+========================================= */
+
+/* 1. Clean Hover Effect for Inactive Buttons (Overrides the rogue purple) */
+body.light-mode div[style*="padding: 28px"] button.topic-grid-btn:not(.active):hover {
+  background-color: #F8FAFC !important;
+  border-color: #94A3B8 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  transform: translateY(-1px);
+}
+
+/* 2. Force the stubborn 0% (and ALL other text) inside the active button to be pure white */
+body.light-mode div[style*="padding: 28px"] button.topic-grid-btn.active * {
+  color: #FFFFFF !important;
+}
+/* =========================================
+   SECTION 5: THE "LAST TOPIC" FIX
+========================================= */
+
+/* Shields the last grid button from the Profile page's greedy :last-child rule */
+body.light-mode div[style*="padding: 28px"] button.topic-grid-btn:last-child:not(.active) {
+  background-color: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #0F172A !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Forces the text inside the last inactive button back to dark slate */
+body.light-mode div[style*="padding: 28px"] button.topic-grid-btn:last-child:not(.active) > span {
+  color: #0F172A !important;
+}
+
+/* Restores the inner badges of the last button to light grey */
+body.light-mode div[style*="padding: 28px"] button.topic-grid-btn:last-child:not(.active) > div > span:first-child {
+  background-color: #F1F5F9 !important;
+  color: #475569 !important;
+}
+
+body.light-mode div[style*="padding: 28px"] button.topic-grid-btn:last-child:not(.active) > div > span:last-child {
+  color: #64748B !important; 
+}
+/* =========================================
+   FILTER TABS FIX (All / Solved / To Do)
+========================================= */
+
+/* 1. Strip the rogue purple shadow from the INACTIVE tabs */
+body.light-mode div[style*="gap: 8px"] > button[style*="161622" i],
+body.light-mode div[style*="gap: 8px"] > button[style*="rgb(22, 22, 34)"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #64748B !important;
+  box-shadow: none !important; /* <--- This instantly kills the purple glow */
+}
+
+/* Add a crisp hover effect for inactive tabs */
+body.light-mode div[style*="gap: 8px"] > button[style*="161622" i]:hover,
+body.light-mode div[style*="gap: 8px"] > button[style*="rgb(22, 22, 34)"]:hover {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+/* 2. Style the ACTIVE tab perfectly */
+body.light-mode div[style*="gap: 8px"] > button[style*="A78BFA" i],
+body.light-mode div[style*="gap: 8px"] > button[style*="rgb(167, 139, 250)"] {
+  background-color: #7C3AED !important;
+  border: 1px solid #7C3AED !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3) !important;
+}
+
+
+/* =========================================
+   PROFILE NOTES & WORKSPACE: LIGHT MODE
+========================================= */
+
+/* 1. Main Backgrounds (Containers, Modals, Sidebar, Editor Pane) */
+body.light-mode #root .profile-page div[style*="12131a" i],
+body.light-mode #root .profile-page div[style*="18, 19, 26"],
+body.light-mode #root .profile-page div[style*="161821" i],
+body.light-mode #root .profile-page div[style*="22, 24, 33"],
+body.light-mode #root .profile-page div[style*="0b0c10" i],
+body.light-mode #root .profile-page div[style*="11, 12, 16"] {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+}
+
+/* 2. Secondary Backgrounds (Note Cards, Scratchpad, Inputs, Selects) */
+body.light-mode #root .profile-page div[style*="1a1c29" i],
+body.light-mode #root .profile-page div[style*="26, 28, 41"],
+body.light-mode #root .profile-page textarea[style*="1a1c29" i],
+body.light-mode #root .profile-page textarea[style*="26, 28, 41"],
+body.light-mode #root .profile-page input[style*="1a1c29" i],
+body.light-mode #root .profile-page select[style*="1a1c29" i],
+body.light-mode #root .profile-page select[style*="12131a" i] {
+  background-color: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
+}
+
+/* 3. Global Border Overrides (Catches #2a2d3d in all variations) */
+body.light-mode #root .profile-page div[style*="2a2d3d" i],
+body.light-mode #root .profile-page div[style*="42, 45, 61"] {
+  border-color: #E2E8F0 !important;
+}
+
+/* 4. Text & Typography (Forces white/grey text to dark slate) */
+body.light-mode #root .profile-page div[style*="color: #ffffff" i],
+body.light-mode #root .profile-page span[style*="color: #ffffff" i],
+body.light-mode #root .profile-page input[style*="color: #ffffff" i],
+body.light-mode #root .profile-page select[style*="color: #ffffff" i],
+body.light-mode #root .profile-page div[style*="color: rgb(255, 255, 255)"],
+body.light-mode #root .profile-page textarea[style*="e5e7eb" i],
+body.light-mode #root .profile-page div[style*="d1d5db" i] {
+  color: #0F172A !important;
+}
+
+/* Secondary Text (Dates, Placeholders, Icons, Empty States) */
+body.light-mode #root .profile-page span[style*="9ca3af" i],
+body.light-mode #root .profile-page p[style*="9ca3af" i],
+body.light-mode #root .profile-page div[style*="9ca3af" i],
+body.light-mode #root .profile-page button[style*="9ca3af" i],
+body.light-mode #root .profile-page span[style*="156, 163, 175"],
+body.light-mode #root .profile-page span[style*="6b7280" i],
+body.light-mode #root .profile-page p[style*="6b7280" i],
+body.light-mode #root .profile-page span[style*="107, 114, 128"] {
+  color: #64748B !important;
+}
+
+/* 5. Specific Notes UI Tweaks */
+
+/* Toolbar Hover Effects (Bold, Italic, Delete, etc.) */
+body.light-mode #root .profile-page button[style*="color: #9ca3af" i]:hover,
+body.light-mode #root .profile-page button[style*="color: rgb(156, 163, 175)"]:hover {
+  background-color: #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+/* Vertical Toolbar Dividers */
+body.light-mode #root .profile-page div[style*="width: 1px"][style*="2a2d3d" i],
+body.light-mode #root .profile-page div[style*="width: 1px"][style*="42, 45, 61"] {
+  background-color: #CBD5E1 !important;
+}
+
+/* Mini Type Tags (e.g., "markdown") */
+body.light-mode #root .profile-page span[style*="padding: 2px 8px"] {
+  background-color: #F1F5F9 !important;
+  color: #475569 !important;
+}
+
+/* Cancel Buttons in Modals */
+body.light-mode #root .profile-page button[style*="border: 1px solid #2a2d3d" i],
+body.light-mode #root .profile-page button[style*="border: 1px solid rgb(42, 45, 61)"] {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #475569 !important;
+}
+/* =========================================
+   NOTES ICON BUTTON FIXES (+ and Trash)
+========================================= */
+
+/* 1. Rescue the Add Note (+) Button */
+body.light-mode #root .profile-page button[title="Open Notes Workspace" i] {
+  background-color: #7C3AED !important;
+  color: #FFFFFF !important;
+}
+
+body.light-mode #root .profile-page button[title="Open Notes Workspace" i] svg {
+  color: #FFFFFF !important;
+  fill: currentColor !important;
+}
+
+/* 2. Rescue the Delete (Trash) Button */
+body.light-mode #root .profile-page button[title="Delete note" i] {
+  background-color: transparent !important;
+  color: #94A3B8 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+body.light-mode #root .profile-page button[title="Delete note" i] svg {
+  color: currentColor !important;
+  fill: currentColor !important;
+}
+
+/* Add a crisp red hover effect for the trash can */
+body.light-mode #root .profile-page button[title="Delete note" i]:hover {
+  color: #EF4444 !important;
+  background-color: #FEE2E2 !important;
+}
+/* =========================================
+   WORKSPACE TWEAKS: ACTIVE NOTE, EDITOR TEXT, PRIORITY COLORS
+========================================= */
+
+/* 1. Selected Note in Sidebar -> Faint Purple */
+/* We target the active note by its unique 3px purple border */
+body.light-mode #root .profile-page div[style*="border-left: 3px solid #7C3AED" i],
+body.light-mode #root .profile-page div[style*="border-left: 3px solid rgb(124, 58, 237)"] {
+  background-color: #F3E8FF !important; /* Beautiful faint purple */
+}
+
+/* 2. Fix invisible text inside the main rich-text editor */
+body.light-mode #root .profile-page #inline-note-textarea,
+body.light-mode #root .profile-page #inline-note-textarea * {
+  color: #0F172A !important;
+}
+
+/* 3. Rescue Priority Colors (Text and Dots) */
+/* High (Red) */
+body.light-mode #root .profile-page span[style*="ef4444" i],
+body.light-mode #root .profile-page span[style*="239, 68, 68"] {
+  color: #EF4444 !important;
+}
+body.light-mode #root .profile-page span[style*="background-color: #ef4444" i],
+body.light-mode #root .profile-page span[style*="background-color: rgb(239, 68, 68)"] {
+  background-color: #EF4444 !important;
+}
+
+/* Medium (Yellow) */
+body.light-mode #root .profile-page span[style*="f59e0b" i],
+body.light-mode #root .profile-page span[style*="245, 158, 11"] {
+  color: #F59E0B !important;
+}
+body.light-mode #root .profile-page span[style*="background-color: #f59e0b" i],
+body.light-mode #root .profile-page span[style*="background-color: rgb(245, 158, 11)"] {
+  background-color: #F59E0B !important;
+}
+
+/* Low (Green) */
+body.light-mode #root .profile-page span[style*="10b981" i],
+body.light-mode #root .profile-page span[style*="16, 185, 129"] {
+  color: #10B981 !important;
+}
+body.light-mode #root .profile-page span[style*="background-color: #10b981" i],
+body.light-mode #root .profile-page span[style*="background-color: rgb(16, 185, 129)"] {
+  background-color: #10B981 !important;
+}
+/* Removes the rogue browser border and focus outline from the main title input */
+body.light-mode #root .profile-page input[placeholder="Note Title..." i],
+body.light-mode #root .profile-page input[placeholder="Note Title..." i]:focus {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  padding: 0 !important;
+}
+/* =========================================
+   DELETE CONFIRMATION MODAL (PURPLE THEME)
+========================================= */
+
+/* 1. Main Modal Box */
+body.light-mode #root .profile-page div[style*="width: 400px"] {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 2. 'i' Info Circle (Soft Purple Theme) */
+body.light-mode #root .profile-page div[style*="3b82f6" i],
+body.light-mode #root .profile-page div[style*="59, 130, 246"] {
+  background-color: #F3E8FF !important;
+  color: #7C3AED !important;
+}
+
+/* 3. Cancel Button */
+body.light-mode #root .profile-page div[style*="width: 400px"] button[style*="transparent" i] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #475569 !important;
+}
+
+body.light-mode #root .profile-page div[style*="width: 400px"] button[style*="transparent" i]:hover {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+/* 4. Confirm Button (Signature Purple) */
+body.light-mode #root .profile-page div[style*="width: 400px"] button[style*="7C3AED" i],
+body.light-mode #root .profile-page div[style*="width: 400px"] button[style*="124, 58, 237"] {
+  background-color: #7C3AED !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3) !important;
+}
+
+body.light-mode #root .profile-page div[style*="width: 400px"] button[style*="7C3AED" i]:hover,
+body.light-mode #root .profile-page div[style*="width: 400px"] button[style*="124, 58, 237"]:hover {
+  background-color: #6D28D9 !important; /* Slightly darker purple on hover */
+}
+/* =========================================
+   MODAL OVERLAY BACKGROUND FIX
+========================================= */
+
+/* Restores the transparent overlay so the profile page shows underneath */
+body.light-mode #root .profile-page div[style*="width: 100vw"][style*="height: 100vh"],
+body.light-mode #root .profile-page div[style*="z-index: 1000" i] {
+  background-color: rgba(15, 23, 42, 0.4) !important; /* Faint transparent slate */
+  backdrop-filter: blur(3px) !important; /* Modern frosted glass effect */
+}
+/* =========================================
+   ONBOARDING FORM / EDIT PROFILE: LIGHT MODE
+========================================= */
+
+/* 1. Main Backgrounds */
+body.light-mode .onboarding-container {
+  background-color: #F8FAFC !important;
+}
+
+body.light-mode .onboarding-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 2. Text & Headings */
+body.light-mode .onboarding-header h2,
+body.light-mode .section-title {
+  color: #0F172A !important;
+}
+
+body.light-mode .onboarding-header p,
+body.light-mode .form-label {
+  color: #64748B !important;
+}
+
+/* 3. Inputs & Form Sections */
+body.light-mode .form-section {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+}
+
+body.light-mode .form-input,
+body.light-mode .resume-upload-box {
+  background-color: #F8FAFC !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+body.light-mode .form-input:focus {
+  border-color: #7C3AED !important;
+  background-color: #FFFFFF !important;
+}
+
+/* 4. Fix Inline Cancel Button (Top Right) */
+body.light-mode .onboarding-card > button[style*="1a1c29" i] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #475569 !important;
+}
+
+body.light-mode .onboarding-card > button[style*="1a1c29" i]:hover {
+  background-color: #F1F5F9 !important;
+  color: #0F172A !important;
+}
+
+/* 5. Fix Inline Skills Component */
+/* Main Input Box */
+body.light-mode .onboarding-form div[style*="12121a" i] {
+  background-color: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
+}
+
+/* Typing Input Text */
+body.light-mode .onboarding-form input[style*="color: #ffffff" i] {
+  color: #0F172A !important;
+}
+
+/* Selected Skill Chips */
+body.light-mode .onboarding-form div[style*="1e2030" i] {
+  background-color: #E2E8F0 !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+/* Dropdown Menu Container */
+body.light-mode .onboarding-form div[style*="161622" i] {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Dropdown Items */
+body.light-mode .onboarding-form div[style*="1f2233" i] {
+  color: #0F172A !important;
+  border-bottom-color: #F1F5F9 !important;
+}
+
+/* Submit Button */
+body.light-mode .submit-profile-btn {
+  background-color: #7C3AED !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+
+body.light-mode .submit-profile-btn:hover {
+  background-color: #6D28D9 !important;
+}
+/* 4. Fix Inline Cancel Button (Top Right - Purple Theme) */
+body.light-mode #root .onboarding-card button[style*="absolute" i][style*="24px" i] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #475569 !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+}
+
+body.light-mode #root .onboarding-card button[style*="absolute" i][style*="24px" i]:hover {
+  background-color: #F3E8FF !important; /* Soft faint purple background */
+  border-color: #D8B4FE !important;
+  color: #7C3AED !important; /* Signature purple text on hover */
+}
+/* =========================================
+   DATE PICKER POPUP FIX (LIGHT MODE)
+========================================= */
+
+/* Forces the browser's native calendar widget to flip to light mode */
+body.light-mode #root .onboarding-page input[type="date"],
+body.light-mode #root input[type="date"] {
+  color-scheme: light !important;
+}
+/* =========================================
+   SKILLS SECTION & SEARCH BAR FIX (LIGHT MODE)
+========================================= */
+
+/* 1. Main Skills Container Box */
+body.light-mode #root .onboarding-form div[style*="12121a" i],
+body.light-mode #root .onboarding-form div[style*="18, 18, 26"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+}
+
+/* 2. Individual Skill Chips (Java, React, etc.) */
+body.light-mode #root .onboarding-form div[style*="1e2030" i],
+body.light-mode #root .onboarding-form div[style*="30, 32, 48"] {
+  background-color: #F1F5F9 !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+/* Skill Chip Close (X) Icon */
+body.light-mode #root .onboarding-form div[style*="1e2030" i] button {
+  color: #64748B !important;
+}
+body.light-mode #root .onboarding-form div[style*="1e2030" i] button:hover {
+  color: #EF4444 !important;
+}
+
+/* 3. The Typing Input Box & Search Icon */
+body.light-mode #root .onboarding-form input[placeholder*="skill" i],
+body.light-mode #root .onboarding-form input[value] {
+  color: #0F172A !important;
+}
+
+body.light-mode #root .onboarding-form div[style*="margin-left: auto"] {
+  color: #64748B !important;
+}
+/* =========================================
+   FIXED SCROLLABLE SKILLS DROPDOWN (LIGHT MODE)
+========================================= */
+
+/* 1. Dropdown Container Box with Working Scrollbar */
+body.light-mode #root .onboarding-form div[style*="161622" i],
+body.light-mode #root .onboarding-form div[style*="22, 22, 34"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
+  border-radius: 12px !important;
+  overflow-y: auto !important; /* Restores scrolling functionality */
+}
+
+/* 2. Dropdown Item Text & Soft Dividers */
+body.light-mode #root .onboarding-form div[style*="161622" i] div,
+body.light-mode #root .onboarding-form div[style*="22, 22, 34"] div {
+  color: #0F172A !important;
+  padding: 10px 16px !important;
+  border-bottom: 1px solid #F1F5F9 !important;
+  transition: all 0.15s ease !important;
+}
+
+/* 3. Clean Hover State */
+body.light-mode #root .onboarding-form div[style*="161622" i] div:hover,
+body.light-mode #root .onboarding-form div[style*="22, 22, 34"] div:hover {
+  background-color: #F3E8FF !important;
+  color: #7C3AED !important;
+  padding-left: 20px !important;
+}
+/* =========================================
+   RESUME UPLOAD BOX FIX (LIGHT MODE)
+========================================= */
+
+/* 1. Clean up the outer resume upload container */
+body.light-mode .resume-upload-box {
+  background-color: #F8FAFC !important;
+  border: 1px solid #CBD5E1 !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+}
+
+/* 2. Style the internal file selector button nicely */
+body.light-mode .resume-upload-box input[type="file"] {
+  color: #0F172A !important;
+}
+
+body.light-mode .resume-upload-box input[type="file"]::file-selector-button {
+  background-color: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #475569 !important;
+  padding: 8px 14px !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+
+body.light-mode .resume-upload-box input[type="file"]::file-selector-button:hover {
+  background-color: #F3E8FF !important;
+  border-color: #D8B4FE !important;
+  color: #7C3AED !important;
+}
+/* =========================================
+   PROFILE PHOTO SELECTOR COMPONENT FIX
+========================================= */
+
+/* 1. Main Container Card Background & Border */
+body.light-mode #root .onboarding-form div[style*="161821" i],
+body.light-mode #root .onboarding-form div[style*="22, 24, 33"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+}
+
+/* 2. Inner Avatar Background & Drop Zone Background */
+body.light-mode #root .onboarding-form div[style*="12131a" i],
+body.light-mode #root .onboarding-form div[style*="18, 19, 26"] {
+  background-color: #F8FAFC !important;
+}
+
+/* 3. Text & Subtitle Colors */
+body.light-mode #root .onboarding-form div[style*="161821" i] h3 {
+  color: #0F172A !important;
+}
+
+body.light-mode #root .onboarding-form div[style*="161821" i] p {
+  color: #64748B !important;
+}
+
+/* 4. Preset Avatar Images Border */
+body.light-mode #root .onboarding-form img[style*="2a2d3d" i],
+body.light-mode #root .onboarding-form img[style*="42, 45, 61"] {
+  border-color: #CBD5E1 !important;
+}
+/* =========================================
+   NAVBAR PROFILE PHOTO BORDER (LIGHT MODE)
+========================================= */
+
+body.light-mode #root header img,
+body.light-mode #root .navbar img,
+body.light-mode #root [class*="nav"] img {
+  border: 2px solid #CBD5E1 !important;
+  border-radius: 50% !important;
+  /* box-sizing: content-box ensures the border sits outside the image without shrinking it */
+  box-sizing: content-box !important; 
+}
+/* =========================================
+   MAIN CONTENT BACKGROUND FIX (LIGHT MODE)
+========================================= */
+
+body.light-mode #root div[style*="13, 13, 20"] {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+/* Ensure child text containers also inherit proper dark contrast */
+body.light-mode #root div[style*="13, 13, 20"] p {
+  color: #64748B !important;
+}
+
+body.light-mode #root div[style*="13, 13, 20"] h1,
+body.light-mode #root div[style*="13, 13, 20"] h2,
+body.light-mode #root div[style*="13, 13, 20"] h3 {
+  color: #0F172A !important;
+}
+/* =========================================
+   SIGNIN / SIGNUP PAGE LIGHT MODE OVERRIDES
+========================================= */
+
+/* 1. Outer Screen Container Background */
+body.light-mode #root div[style*="min-height: 100vh"][style*="0D0D14"] {
+  background-color: #F8FAFC !important;
+}
+
+/* 2. Main Login/Signup Card Box */
+body.light-mode #root div[style*="maxWidth: 480px"][style*="161622"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+  color: #0F172A !important;
+}
+
+/* 3. Card Subtitle and Labels */
+body.light-mode #root div[style*="maxWidth: 480px"] p {
+  color: #64748B !important;
+}
+
+body.light-mode #root div[style*="maxWidth: 480px"] label {
+  color: #334155 !important;
+}
+
+/* 4. Form Text Inputs */
+body.light-mode #root input[style*="0D0D14"] {
+  background-color: #F8FAFC !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+body.light-mode #root input[style*="0D0D14"]::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* 5. Google Sign-In Button */
+body.light-mode #root button[style*="Continue with Google"],
+body.light-mode #root button[style*="0D0D14"][style*="border: 1px solid #2E2E42"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+body.light-mode #root button[style*="Continue with Google"]:hover {
+  background-color: #F8FAFC !important;
+  border-color: #94A3B8 !important;
+}
+/* =========================================
+   PROFILE PHOTO SELECTOR - LIGHT MODE INNER FIX
+========================================= */
+
+/* 1. Turn the upload drop zone light and clean */
+body.light-mode #root .onboarding-form label[style*="background"],
+body.light-mode #root div[style*="Profile Photo"] label {
+  background-color: #F8FAFC !important;
+  border-color: #A78BFA !important;
+}
+
+body.light-mode #root .onboarding-form label[style*="background"] span {
+  color: #7C3AED !important;
+}
+
+/* 2. Turn individual preset avatar backgrounds light */
+body.light-mode #root .onboarding-form img[style*="12131a"],
+body.light-mode #root .onboarding-form img[style*="background"] {
+  background-color: #F1F5F9 !important;
+  border-color: #CBD5E1 !important;
+}
+
+/* 3. Catch any remaining inner dark container boxes inside the profile photo card */
+body.light-mode #root div[style*="Profile Photo"] div[style*="background-color: rgb(18, 19, 26)"],
+body.light-mode #root div[style*="Profile Photo"] div[style*="background: rgb(18, 19, 26)"] {
+  background-color: #F8FAFC !important;
+}
+/* =========================================
+   SETTINGS PAGE - LIGHT MODE OVERRIDES
+========================================= */
+
+body.light-mode .settings-container {
+  color: #1E293B !important;
+}
+
+body.light-mode .settings-container h2 {
+  color: #0F172A !important;
+}
+
+body.light-mode .settings-container p {
+  color: #64748B !important;
+}
+
+/* Turn standard settings cards into crisp white cards */
+body.light-mode .settings-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05) !important;
+  color: #1E293B !important;
+}
+
+/* Headings inside cards */
+body.light-mode .card-section-header h3 {
+  color: #0F172A !important;
+}
+
+/* Danger Zone Card - Kept distinctly styled with a subtle red tint and border */
+body.light-mode .settings-card:has(.card-section-header [style*="color: rgb(239, 68, 68)"]),
+body.light-mode .settings-card:has(.card-section-header .lucide-shield-alert) {
+  border-color: rgba(239, 68, 68, 0.35) !important;
+  background-color: #FFFBFA !important;
+}
+
+/* Danger Zone description paragraph */
+body.light-mode .settings-card:has(.card-section-header .lucide-shield-alert) p {
+  color: #64748B !important;
+}
+
+/* Delete Account Button - Kept boldly red and clean */
+body.light-mode .settings-card button[type="button"][style*="background-color: rgba(239, 68, 68"],
+body.light-mode .settings-card:has(.lucide-shield-alert) button[type="button"] {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+  color: #EF4444 !important;
+  border: 1px solid rgba(239, 68, 68, 0.4) !important;
+}
+
+body.light-mode .settings-card button[type="button"][style*="background-color: rgba(239, 68, 68"]:hover,
+body.light-mode .settings-card:has(.lucide-shield-alert) button[type="button"]:hover {
+  background-color: rgba(239, 68, 68, 0.18) !important;
+}
+
+/* Form labels styling */
+body.light-mode .form-group label {
+  color: #475569 !important;
+  font-weight: 500;
+}
+
+/* Form inputs styling */
+body.light-mode .form-group input {
+  background-color: #F8FAFC !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+body.light-mode .form-group input::placeholder {
+  color: #94A3B8 !important;
+}
+
+body.light-mode .form-group input:focus {
+  border-color: #7C3AED !important;
+  background-color: #FFFFFF !important;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15) !important;
+}
+
+/* Eye visibility toggle buttons inside inputs */
+body.light-mode .form-group button[type="button"] {
+  color: #64748B !important;
+}
+
+body.light-mode .form-group button[type="button"]:hover {
+  color: #1E293B !important;
+}

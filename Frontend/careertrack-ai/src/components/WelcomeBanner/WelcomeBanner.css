@@ -1,0 +1,201 @@
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
+
+.welcome-banner {
+  background: #18181B;
+  border: 1px solid #27272A;
+  border-radius: 22px;
+  padding: 28px;
+  transition: .3s;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.banner-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.banner-header h2 {
+  font-size: 32px;
+  color: white;
+  margin: 0;
+}
+
+.banner-header p {
+  color: #A1A1AA;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.add-goal,
+.add-goal-btn {
+  background-color: #7C3AED;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+  transition: background-color 0.2s ease;
+}
+
+.add-goal:hover,
+.add-goal-btn:hover {
+  background-color: #6d28d9;
+}
+
+/* Banner Cards Container */
+.banner-cards {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 10px 0;
+  width: 100%;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.banner-cards::-webkit-scrollbar {
+  display: none;
+}
+
+.banner-card {
+  background: #09090B;
+  border: 1px solid #27272A;
+  border-radius: 18px;
+  padding: 20px;
+  transition: .25s;
+  flex: 0 0 calc((100% - 40px) / 3);
+  scroll-snap-align: start;
+  box-sizing: border-box;
+}
+
+.banner-card:hover {
+  transform: translateY(-5px);
+  border-color: #8B5CF6;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.card-icon,
+.icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.card-icon.green,
+.icon.green {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22C55E;
+}
+
+.card-icon.orange,
+.icon.flame,
+.flame {
+  background: rgba(249, 115, 22, 0.15);
+  color: #F97316;
+}
+
+.card-icon.blue,
+.icon.blue {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3B82F6;
+}
+
+.stat h4 {
+  color: white;
+  margin: 0 0 4px 0;
+}
+
+.stat p {
+  color: #9ca3af;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Navigation Button Styling */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #27272A;
+  color: #ffffff;
+  border: 1px solid #3a3a3a;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.scroll-btn:hover {
+  background: #8B5CF6;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.scroll-btn.left {
+  left: -22px;
+}
+
+.scroll-btn.right,
+.scroll-right-arrow {
+  right: -22px;
+}
+
+/* Hide dynamic overflow arrows by default */
+.scroll-right-arrow {
+  display: none !important;
+}
+
+.carousel-wrapper.has-overflow .scroll-right-arrow {
+  display: flex !important;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .banner-card {
+    flex: 0 0 calc(50% - 10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-card {
+    flex: 0 0 100%;
+  }
+  
+  .scroll-btn {
+    display: none;
+  }
+}

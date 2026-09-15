@@ -1,0 +1,186 @@
+.ai-card {
+  margin-top: 12px;
+
+  background: #18181b;
+
+  border: 1px solid #27272a;
+
+  border-radius: 22px;
+
+  padding: 12px;
+}
+
+.ai-header {
+  margin-bottom: 24px;
+}
+
+.title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+}
+.title-components {
+  margin-left: 12px;
+}
+
+.title svg {
+  color: #8b5cf6;
+}
+
+.title h2 {
+  font-size: 24px;
+
+  color: white;
+}
+
+.title p {
+  color: #9ca3af;
+
+  margin-top: 4px;
+}
+
+.title button {
+  background: #27272a;
+
+  border: none;
+
+  color: white;
+
+  padding: 8px 10px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.ai-item {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 18px 0;
+
+  border-top: 1px solid #27272a;
+}
+
+.ai-item:first-of-type {
+  border-top: none;
+}
+
+.ai-left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+.icon-box {
+  width: 50px;
+
+  height: 50px;
+
+  border-radius: 14px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  background: rgba(139, 92, 246, 0.15);
+
+  color: #8b5cf6;
+}
+
+.ai-left h4 {
+  color: white;
+
+  margin-bottom: 6px;
+}
+
+.ai-left p {
+  color: #a1a1aa;
+
+  font-size: 14px;
+
+  max-width: 450px;
+}
+
+.ai-item button {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  background: #8b5cf6;
+
+  color: white;
+
+  border: none;
+
+  padding: 10px 18px;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.ai-item button:hover {
+  background: #7c3aed;
+}
+
+.ai-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.ai-content {
+  overflow-y: auto;
+  margin-top: 15px;
+}
+
+.ai-card {
+  background: #18181b;
+
+  border: 1px solid #27272a;
+
+  border-radius: 20px;
+
+  padding: 24px;
+
+  height: 153px;
+
+  overflow: hidden;
+}
+.ai-list {
+  margin-top: 20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+
+  overflow-y: auto;
+
+  height: 220px;
+}
+
+.ai-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ai-list::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+
+  border-radius: 20px;
+}
