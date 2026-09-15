@@ -23,8 +23,18 @@ const uploadMemory = multer({ storage: multer.memoryStorage() });
 
 // Middleware
 app.use(express.json());
+const allowedOrigins = [
+  "http://localhost:5173",
+  process.env.FRONTEND_URL 
+].filter(Boolean);
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        return callback(new Error('CORS policy violation: This origin is not allowed.'), false);
+      }
+      return callback(null, true);
+    },
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
@@ -66,7 +76,7 @@ passport.use(new GoogleStrategy(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:8080/api/google/callback",
+      callbackURL: process.env.GOOGLE_CALLBACK_URL || "http://localhost:8080/api/google/callback",
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
