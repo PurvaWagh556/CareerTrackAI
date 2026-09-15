@@ -40,6 +40,8 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
   })
 );
+console.log("Current __dirname:", __dirname);
+console.log("Resolved static path:", path.resolve(__dirname, "../Frontend/careertrack-ai/dist"));
 app.use(express.static(path.resolve(__dirname, "../Frontend/careertrack-ai/dist")));
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
