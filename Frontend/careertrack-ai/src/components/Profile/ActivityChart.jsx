@@ -93,7 +93,7 @@ function ActivityChart() {
     const formattedDate = `${day}-${month}-${year}`;
     const dayRecord = checkedDays[dateKey];
 
-    const actualMinutes = dayRecord ? (typeof dayRecord === 'number' ? dayRecord : (dayRecord.duration || dayRecord.minutes || 30)) : 0;
+    const actualMinutes = dayRecord ? (typeof dayRecord === 'number' ? dayRecord : (dayRecord.duration || dayRecord.minutes || 0)) : 0;
 
     return {
       label: labels[i],
@@ -120,7 +120,7 @@ function ActivityChart() {
     const formattedDate = `${formattedDay}-${formattedMonth}-${year}`;
     const dayRecord = checkedDays[dateKey];
 
-    const actualMinutes = dayRecord ? (typeof dayRecord === 'number' ? dayRecord : (dayRecord.duration || dayRecord.minutes || 30)) : 0;
+    const actualMinutes = dayRecord ? (typeof dayRecord === 'number' ? dayRecord : (dayRecord.duration || dayRecord.minutes || 0)) : 0;
 
     return {
       day: dayNum,
