@@ -75,13 +75,15 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS?.trim(),
   },
 });
+const BACKEND_URL = process.env.NODE_ENV === 'production' 
+  ? 'https://careertrackai.onrender.com' 
+  : 'http://localhost:8080';
 
-passport.use(new GoogleStrategy(
-    {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: process.env.GOOGLE_CALLBACK_URL || "http://localhost:8080/api/google/callback",
-    },
+passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: `${BACKEND_URL}/api/google/callback`
+  },
     async (accessToken, refreshToken, profile, done) => {
       try {
         let user = await User.findOne({ email: profile.emails[0].value });
@@ -326,9 +328,9 @@ app.get("/api/support", async (req, res) => {
   }
 });
 
-app.get(/^(?!\/api).*/, (req, res) => {
-  res.sendFile(path.join(distPath, "index.html"));
-});
+// app.get(/^(?!\/api).*/, (req, res) => {
+//   res.sendFile(path.join(distPath, "index.html"));
+// });
 // Connect to MongoDB & Start Server
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {

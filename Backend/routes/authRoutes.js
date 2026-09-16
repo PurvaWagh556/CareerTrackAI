@@ -224,9 +224,13 @@ router.get("/google",
   passport.authenticate("google", { scope: ["profile", "email"] })
 );
 
+const FRONTEND_URL = process.env.NODE_ENV === 'production'
+  ? 'https://career-track-ai-eight.vercel.app'
+  : 'http://localhost:5173';
+
 router.get("/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "http://localhost:5173/login",
+    failureRedirect: `${FRONTEND_URL}/login`,
     session: false,
   }),
   (req, res) => {
@@ -240,10 +244,12 @@ router.get("/google/callback",
         process.env.JWT_SECRET,
         { expiresIn: "7d" }
       );
-      res.redirect(`http://localhost:5173/login?token=${token}`);
+      // Redirect back to Vercel with the token
+      res.redirect(`${FRONTEND_URL}/login?token=${token}`);
     } catch (err) {
       console.error("OAuth callback token error:", err);
-      res.redirect("http://localhost:5173/login");
+      // Redirect back to Vercel on error
+      res.redirect(`${FRONTEND_URL}/login`);
     }
   }
 );
