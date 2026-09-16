@@ -5,6 +5,7 @@ function Skills() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [skillToDeleteId, setSkillToDeleteId] = useState(null);
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
   
   const [skillData, setSkillData] = useState({
     name: "",
@@ -20,7 +21,7 @@ function Skills() {
 
   const fetchSkills = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/skills", {
+      const response = await fetch(`${API_URL}/api/skills`, {
         headers: {
           "Authorization": `Bearer ${localStorage.getItem("token")}`
         }
@@ -40,7 +41,7 @@ function Skills() {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:8080/api/skills", {
+      const response = await fetch(`${API_URL}/api/skills`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -81,7 +82,7 @@ function Skills() {
     if (!skillToDeleteId) return;
 
     try {
-      const response = await fetch(`http://localhost:8080/api/skills/${skillToDeleteId}`, {
+      const response = await fetch(`${API_URL}/api/skills/${skillToDeleteId}`, {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${localStorage.getItem("token")}`

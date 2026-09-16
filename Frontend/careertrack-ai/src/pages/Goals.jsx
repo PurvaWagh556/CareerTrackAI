@@ -24,13 +24,15 @@ function Goals() {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [goalToDeleteId, setGoalToDeleteId] = useState(null);
 
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+
   useEffect(() => {
     fetchGoals();
   }, []);
 
   const fetchGoals = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/goals", {
+      fetch(`${API_URL}/api/goals`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -49,7 +51,7 @@ function Goals() {
     if (!goalData.title.trim()) return;
 
     try {
-      const response = await fetch("http://localhost:8080/api/goals", {
+      const response = await fetch(`${API_URL}/api/goals`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -81,7 +83,7 @@ function Goals() {
       currentStatus === "Completed" ? "In Progress" : "Completed";
 
     try {
-      const response = await fetch(`http://localhost:8080/api/goals/${id}`, {
+      const response = await fetch(`${API_URL}/api/goals/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -112,7 +114,7 @@ function Goals() {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/api/goals/${goalToDeleteId}`,
+        `${API_URL}/api/goals/${goalToDeleteId}`,
         {
           method: "DELETE",
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },

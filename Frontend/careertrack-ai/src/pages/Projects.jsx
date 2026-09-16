@@ -7,6 +7,8 @@ function Projects() {
   const [projectToDeleteId, setProjectToDeleteId] = useState(null);
   const [editingProjectId, setEditingProjectId] = useState(null);
   const [activeTab, setActiveTab] = useState("All");
+
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
   
   const [projectData, setProjectData] = useState({
     title: "",
@@ -25,7 +27,7 @@ function Projects() {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/projects", {
+      const response = await fetch(`${API_URL}/api/projects`, {
         headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
       });
       const data = await response.json();
@@ -54,8 +56,8 @@ function Projects() {
 
     try {
       const url = editingProjectId 
-        ? `http://localhost:8080/api/projects/${editingProjectId}`
-        : "http://localhost:8080/api/projects";
+        ? `${API_URL}/api/projects/${editingProjectId}`
+        : `${API_URL}/api/projects`;
       
       const method = editingProjectId ? "PATCH" : "POST";
 
@@ -90,7 +92,7 @@ function Projects() {
   const handleToggleStatus = async (id, currentStatus) => {
     const newStatus = currentStatus === "Completed" ? "In Progress" : "Completed";
     try {
-      const response = await fetch(`http://localhost:8080/api/projects/${id}`, {
+      const response = await fetch(`${API_URL}/api/projects/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -116,7 +118,7 @@ function Projects() {
     if (!projectToDeleteId) return;
 
     try {
-      const response = await fetch(`http://localhost:8080/api/projects/${projectToDeleteId}`, {
+      const response = await fetch(`${API_URL}/api/projects/${projectToDeleteId}`, {
         method: "DELETE",
         headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
       });

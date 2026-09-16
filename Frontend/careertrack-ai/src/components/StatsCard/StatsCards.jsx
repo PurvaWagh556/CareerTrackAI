@@ -16,7 +16,7 @@ function StatsCards() {
   const [streakCount, setStreakCount] = useState("0");
   const [dsaRecentChange, setDsaRecentChange] = useState("+0");
   const [streakChange, setStreakChange] = useState("+0");
-
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -29,70 +29,70 @@ function StatsCards() {
 
     const headers = { Authorization: `Bearer ${token}` };
 
-    fetch("http://localhost:8080/api/resume/ats-score", { headers })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success && data.hasResume) {
-          setResumeScore(`${data.score} / 100`);
-        } else {
-          setResumeScore("No Resume");
-        }
-      })
-      .catch((err) => console.error("Error fetching resume score:", err));
+    fetch(`${API_URL}/api/resume/ats-score`, { headers })
+  .then((res) => res.json())
+  .then((data) => {
+    if (data.success && data.hasResume) {
+      setResumeScore(`${data.score} / 100`);
+    } else {
+      setResumeScore("No Resume");
+    }
+  })
+  .catch((err) => console.error("Error fetching resume score:", err));
 
-    fetch("http://localhost:8080/api/user/profile", { headers })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data && data.certificates) {
-          setCertCount(data.certificates.length.toString());
-        } else {
-          setCertCount("0");
-        }
-      })
-      .catch((err) => console.error("Error fetching profile certificates:", err));
+    fetch(`${API_URL}/api/user/profile`, { headers })
+  .then((res) => res.json())
+  .then((data) => {
+    if (data && data.certificates) {
+      setCertCount(data.certificates.length.toString());
+    } else {
+      setCertCount("0");
+    }
+  })
+  .catch((err) => console.error("Error fetching profile certificates:", err));
 
-    fetch("http://localhost:8080/api/problems", { headers })
-      .then((res) => res.json())
-      .then((problems) => {
-        if (Array.isArray(problems)) {
-          const solvedList = problems.filter((p) => p.status === "Solved");
-          
-          const now = new Date();
-          const year = now.getFullYear();
-          const month = String(now.getMonth() + 1).padStart(2, '0');
-          const day = String(now.getDate()).padStart(2, '0');
-          const todayKey = `${year}-${month}-${day}`;
+    fetch(`${API_URL}/api/problems`, { headers })
+  .then((res) => res.json())
+  .then((problems) => {
+    if (Array.isArray(problems)) {
+      const solvedList = problems.filter((p) => p.status === "Solved");
+      
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const todayKey = `${year}-${month}-${day}`;
 
-          const solvedToday = solvedList.filter((p) => {
-            const timestamp = p.updatedAt || p.createdAt;
-            if (!timestamp) return false;
-            const d = new Date(timestamp);
-            const pKey = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-            return pKey === todayKey;
-          }).length;
+      const solvedToday = solvedList.filter((p) => {
+        const timestamp = p.updatedAt || p.createdAt;
+        if (!timestamp) return false;
+        const d = new Date(timestamp);
+        const pKey = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+        return pKey === todayKey;
+      }).length;
 
-          setDsaSolvedCount(`+${solvedToday}`);
-          setDsaRecentChange("Till Now");
-        }
-      })
-      .catch((err) => console.error("Error fetching DSA problems:", err));
+      setDsaSolvedCount(`+${solvedToday}`);
+      setDsaRecentChange("Till Now");
+    }
+  })
+  .catch((err) => console.error("Error fetching DSA problems:", err));
 
-    fetch("http://localhost:8080/api/streak", { headers })
-      .then((res) => res.json())
-      .then((streakData) => {
-        if (streakData && streakData.streak !== undefined) {
-          setStreakCount(streakData.streak.toString());
-          
-          const todayKey = new Date().toISOString().split("T")[0];
-          const todayRecord = streakData.checkedDays?.[todayKey];
-          if (todayRecord) {
-            setStreakChange("Active");
-          } else {
-            setStreakChange("Current");
-          }
-        }
-      })
-      .catch((err) => console.error("Error fetching streak data:", err));
+    fetch(`${API_URL}/api/streak`, { headers })
+  .then((res) => res.json())
+  .then((streakData) => {
+    if (streakData && streakData.streak !== undefined) {
+      setStreakCount(streakData.streak.toString());
+      
+      const todayKey = new Date().toISOString().split("T")[0];
+      const todayRecord = streakData.checkedDays?.[todayKey];
+      if (todayRecord) {
+        setStreakChange("Active");
+      } else {
+        setStreakChange("Current");
+      }
+    }
+  })
+  .catch((err) => console.error("Error fetching streak data:", err));
   }, []);
 
   const stats = [

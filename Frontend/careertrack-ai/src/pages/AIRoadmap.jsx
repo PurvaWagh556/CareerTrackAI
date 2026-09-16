@@ -13,11 +13,12 @@ function AIRoadmap() {
 
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [roadmapToDelete, setRoadmapToDelete] = useState(null);
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   const fetchUserRoadmaps = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("http://localhost:8080/api/roadmaps", {
+      const response = await fetch(`${API_URL}/api/roadmaps`, {
         headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
       });
       const data = await response.json();
@@ -56,7 +57,7 @@ function AIRoadmap() {
   const handleSelectTrack = async (trackName, trackId) => {
     setSelectedTrack(trackName);
     try {
-      await fetch(`http://localhost:8080/api/roadmap/${trackId}/activate`, {
+      await fetch(`${API_URL}/api/roadmap/${trackId}/activate`, {
         method: "PATCH",
         headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
       });
@@ -72,7 +73,7 @@ function AIRoadmap() {
     const targetTrack = trackInput.trim() || "Full-Stack Developer";
 
     try {
-      const response = await fetch("http://localhost:8080/api/roadmap/regenerate", {
+      const response = await fetch(`${API_URL}/api/roadmap/regenerate`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -104,7 +105,7 @@ function AIRoadmap() {
     if (!roadmapToDelete) return;
 
     try {
-      const response = await fetch(`http://localhost:8080/api/roadmap/${roadmapToDelete.id}`, {
+      const response = await fetch(`${API_URL}/api/roadmap/${roadmapToDelete.id}`, {
         method: "DELETE",
         headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
       });

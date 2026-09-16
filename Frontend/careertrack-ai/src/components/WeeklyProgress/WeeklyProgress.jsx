@@ -21,6 +21,7 @@ function WeeklyProgress() {
     { day: "Sat", progress: 0 },
     { day: "Sun", progress: 0 },
   ]);
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   useEffect(() => {
     const fetchWeeklyProgress = async () => {
@@ -28,7 +29,7 @@ function WeeklyProgress() {
       if (!token) return;
 
       try {
-        const res = await fetch("http://localhost:8080/api/activity", {
+        const res = await fetch(`${API_URL}/api/activity`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         

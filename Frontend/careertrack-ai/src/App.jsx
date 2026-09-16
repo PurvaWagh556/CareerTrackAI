@@ -37,6 +37,7 @@ function App() {
       document.documentElement.classList.add("dark");
     }
   }, []);
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) return;
@@ -51,22 +52,21 @@ function App() {
 
         const today = new Date();
         const year = today.getFullYear();
-        const month = String(today.getMonth() + 1).padStart(2, '0');
-        const day = String(today.getDate()).padStart(2, '0');
+        const month = String(today.getMonth() + 1).padStart(2, "0");
+        const day = String(today.getDate()).padStart(2, "0");
         const todayKey = `${year}-${month}-${day}`;
-
-        fetch("http://localhost:8080/api/track-time", {
+        
+        fetch(`${API_URL}/api/track-time`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
+            Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify({ 
-            date: todayKey, 
-            minutes: 1 
-          })
-        }).catch(err => console.error("DB time tracking error:", err));
-
+          body: JSON.stringify({
+            date: todayKey,
+            minutes: 1,
+          }),
+        }).catch((err) => console.error("DB time tracking error:", err));
       }, 60000);
     };
 
@@ -107,15 +107,21 @@ function App() {
           <Route path="/signup" element={<SignupSigninPage />} />
 
           {/* Protected Routes - Guarded by OnboardingRouteGuard */}
-          <Route element={<OnboardingRouteGuard><DashboardLayout /></OnboardingRouteGuard>}>
+          <Route
+            element={
+              <OnboardingRouteGuard>
+                <DashboardLayout />
+              </OnboardingRouteGuard>
+            }
+          >
             <Route path="/" element={<Dashboard />} />
-            <Route path="/dashboard" element={<Dashboard/>}/>
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/skills" element={<Skills />} />
             <Route path="/dsa-tracker" element={<DSATracker />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/goals" element={<Goals />} />
             <Route path="/ai-roadmap" element={<AiRoadmap />} />
-            <Route path="/roadmap" element={<AiRoadmap/>}/>
+            <Route path="/roadmap" element={<AiRoadmap />} />
             <Route path="/profile" element={<ViewProfile />} />
             <Route path="/settings" element={<Settings />} />
 
@@ -129,8 +135,11 @@ function App() {
 
             <Route path="/resume-details" element={<ResumeDetails />} />
             <Route path="/certifications" element={<Certifications />} />
-            <Route path="/streak-details" element={<StreakDetails/>}/>
-            <Route path="/recommendations" element={<AIRecommendationsPage />} />
+            <Route path="/streak-details" element={<StreakDetails />} />
+            <Route
+              path="/recommendations"
+              element={<AIRecommendationsPage />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -37,6 +37,8 @@ function WelcomeBanner() {
   const [currentTime, setCurrentTime] = useState("");
   const [currentThought, setCurrentThought] = useState("");
 
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+
   const professionalThoughts = [
     "Consistency compounds into massive career success. Keep building!",
     "Every line of code brings you closer to your target role.",
@@ -88,7 +90,7 @@ function WelcomeBanner() {
       if (!token) return;
 
       try {
-        const response = await fetch("http://localhost:8080/api/user/profile", {
+        const response = await fetch(`${API_URL}/api/user/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -170,7 +172,7 @@ function WelcomeBanner() {
       if (!token) return;
 
       try {
-        const response = await fetch("http://localhost:8080/api/metrics", {
+        const response = await fetch(`${API_URL}/api/metrics`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

@@ -19,6 +19,7 @@ function StreakDetails() {
   const [hoveredDay, setHoveredDay] = useState(null);
 
   const cardRef = useRef(null);
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   useEffect(() => {
     fetchStreakAndActivityData();
@@ -31,7 +32,7 @@ function StreakDetails() {
     const headers = { Authorization: `Bearer ${token}` };
 
     try {
-      const activityRes = await fetch("http://localhost:8080/api/activity", { headers });
+      const activityRes = await fetch(`${API_URL}/api/activity`, { headers });
       if (activityRes.ok) {
         const data = await activityRes.json();
         setActivityData(data);
@@ -41,7 +42,7 @@ function StreakDetails() {
         setActiveDaysCount(counts.filter((c) => c > 0).length);
       }
 
-      const streakRes = await fetch("http://localhost:8080/api/streak", { headers });
+      const streakRes = await fetch(`${API_URL}/api/streak`, { headers });
       if (streakRes.ok) {
         const streakData = await streakRes.json();
         setCurrentStreak(streakData.streak || 0);

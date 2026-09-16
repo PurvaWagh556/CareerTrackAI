@@ -11,7 +11,7 @@ function ResumeDetails() {
   useEffect(() => {
     fetchScore();
   }, []);
-
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
   const fetchScore = () => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -19,7 +19,7 @@ function ResumeDetails() {
       return;
     }
 
-    fetch("http://localhost:8080/api/resume/ats-score", {
+    fetch(`${API_URL}/api/resume/ats-score`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then((res) => res.json())
@@ -39,7 +39,7 @@ function ResumeDetails() {
 
     setRechecking(true);
     try {
-      const res = await fetch("http://localhost:8080/api/resume/recheck-score", {
+      const res = await fetch(`${API_URL}/api/resume/recheck-score`, {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` }
       });

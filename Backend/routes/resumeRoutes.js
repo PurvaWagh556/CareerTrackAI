@@ -88,12 +88,16 @@ router.get("/", verifyToken, async (req, res) => {
       return res.json(null);
     }
 
-    res.json({
-      fileName: profile.resumeData.fileName,
-      uploadDate: profile.resumeData.uploadDate,
-      size: profile.resumeData.size,
-      fileUrl: `http://localhost:8080/api/resume/download`,
-    });
+    const BACKEND_URL = process.env.NODE_ENV === "production" 
+  ? "https://careertrackai.onrender.com" 
+  : "http://localhost:8080";
+
+res.json({
+  fileName: profile.resumeData.fileName,
+  uploadDate: profile.resumeData.uploadDate,
+  size: profile.resumeData.size,
+  fileUrl: `${BACKEND_URL}/api/resume/download`, 
+});
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
   }

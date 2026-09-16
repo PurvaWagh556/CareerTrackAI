@@ -5,6 +5,7 @@ function OnboardingRouteGuard({ children }) {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   useEffect(() => {
     const checkOnboarding = async () => {
@@ -15,12 +16,16 @@ function OnboardingRouteGuard({ children }) {
       }
 
       try {
-        const res = await fetch("http://localhost:8080/api/user/profile", {
+        const res = await fetch(`${API_URL}/api/user/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         });
+
         if (res.ok) {
           const data = await res.json();
-          if (data.isProfileComplete === false && location.pathname !== "/profile") {
+          if (
+            data.isProfileComplete === false &&
+            location.pathname !== "/profile"
+          ) {
             navigate("/profile");
           }
         }

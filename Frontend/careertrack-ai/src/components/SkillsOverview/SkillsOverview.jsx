@@ -63,13 +63,15 @@ function SkillsOverview() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+
   useEffect(() => {
     const fetchSkills = async () => {
       const token = localStorage.getItem("token");
       if (!token) return;
 
       try {
-        const res = await fetch("http://localhost:8080/api/skills", {
+        const res = await fetch(`${API_URL}/api/skills`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

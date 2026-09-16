@@ -33,6 +33,7 @@ function ViewProfile() {
   const [loading, setLoading] = useState(true);
   const [profileData, setProfileData] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   // Database Notes State for Profile Preview Card
   const [notes, setNotes] = useState([]);
@@ -74,9 +75,8 @@ function ViewProfile() {
       setLoading(false);
       return;
     }
-
     try {
-      const userRes = await fetch("http://localhost:8080/api/user/profile", {
+      const userRes = await fetch(`${API_URL}/api/user/profile`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -89,7 +89,7 @@ function ViewProfile() {
         }
       }
 
-      const notesRes = await fetch("http://localhost:8080/api/notes", {
+      const notesRes = await fetch(`${API_URL}/api/notes`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (notesRes.ok) {
@@ -177,8 +177,8 @@ function ViewProfile() {
       const isNew = String(noteId).startsWith("temp_");
       const method = isNew ? "POST" : "PUT";
       const url = isNew
-        ? "http://localhost:8080/api/notes"
-        : `http://localhost:8080/api/notes/${noteId}`;
+        ? `${API_URL}/api/notes`
+        : `${API_URL}/api/notes/${noteId}`;
 
       const res = await fetch(url, {
         method: method,
@@ -249,7 +249,7 @@ function ViewProfile() {
     const token = localStorage.getItem("token");
 
     try {
-      const res = await fetch(`http://localhost:8080/api/notes/${targetId}`, {
+      const res = await fetch(`${API_URL}/api/notes/${targetId}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -288,7 +288,7 @@ function ViewProfile() {
     };
 
     try {
-      const response = await fetch("http://localhost:8080/api/notes", {
+      const response = await fetch(`${API_URL}/api/notes`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

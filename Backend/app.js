@@ -328,9 +328,6 @@ app.get("/api/support", async (req, res) => {
   }
 });
 
-// app.get(/^(?!\/api).*/, (req, res) => {
-//   res.sendFile(path.join(distPath, "index.html"));
-// });
 // Connect to MongoDB & Start Server
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {

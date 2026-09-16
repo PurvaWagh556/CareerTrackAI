@@ -23,6 +23,7 @@ function Settings() {
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   const handlePasswordChange = (e) => {
     const { name, value } = e.target;
@@ -73,7 +74,7 @@ function Settings() {
     }
 
     try {
-      const res = await fetch("http://localhost:8080/api/user/password", {
+      const res = await fetch(`${API_URL}/api/user/password`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -111,7 +112,7 @@ function Settings() {
 
   try {
     const token = localStorage.getItem("token");
-    const res = await fetch("http://localhost:8080/api/user/account", {
+    const res = await fetch(`${API_URL}/api/user/account`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
