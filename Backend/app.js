@@ -22,23 +22,26 @@ const uploadMemory = multer({ storage: multer.memoryStorage() });
 
 // Middleware
 app.use(express.json());
+
 const allowedOrigins = [
   "http://localhost:5173",
   process.env.FRONTEND_URL 
 ].filter(Boolean);
+
 app.use(cors({
-    origin: function (origin, callback) {
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.indexOf(origin) === -1) {
-        return callback(new Error('CORS policy violation: This origin is not allowed.'), false);
-      }
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1 || origin.endsWith(".vercel.app")) {
       return callback(null, true);
-    },
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
-  })
-);
+    }
+    
+    return callback(new Error('CORS policy violation: This origin is not allowed.'), false);
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+}));
 
 app.use(express.static(path.resolve(__dirname, "../Frontend/careertrack-ai/dist")));
 
@@ -65,8 +68,8 @@ const verifyPassword = (password, storedPassword) => {
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
+  port: 587,
+  secure: false,
   family: 4,
   auth: {
     user: process.env.EMAIL_USER?.trim(),
