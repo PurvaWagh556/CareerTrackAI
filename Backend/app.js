@@ -14,7 +14,6 @@ const User = require("./models/User");
 const UserProfile = require("./models/UserProfile");
 const Ticket = require("./models/Ticket");
 const verifyToken = require("./middleware/verifyToken");
-const authRoutes = require("./routes/authRoutes");
 require("dotenv").config();
 
 const app = express();
@@ -108,7 +107,7 @@ app.get("/", (req, res) => {
 });
 
 // Register Modular & Auth Routers
-app.use("/api", authRoutes);
+app.use("/api", require("./routes/authRoutes"));
 app.use("/api/skills", require("./routes/skillsRoutes"));
 app.use("/api/projects", require("./routes/projectsRoutes"));
 app.use("/api/goals", require("./routes/goalsRoutes"));
