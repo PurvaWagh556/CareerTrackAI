@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function ProfilePhotoSelector({ currentPic, onSelect }) {
   const [preview, setPreview] = useState(currentPic || localStorage.getItem("profilePic") || "");
 
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   const handleSelectAvatar = async (avatarPath) => {
     setPreview(avatarPath);

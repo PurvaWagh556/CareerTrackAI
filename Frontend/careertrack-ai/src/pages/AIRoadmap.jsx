@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Sparkles, CheckCircle2, Clock, X, Bot, Loader2, Plus, Trash2, AlertTriangle } from "lucide-react";
 import "./AIRoadmap.css";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function AIRoadmap() {
   const [roadmaps, setRoadmaps] = useState({});
@@ -13,7 +14,6 @@ function AIRoadmap() {
 
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [roadmapToDelete, setRoadmapToDelete] = useState(null);
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   const fetchUserRoadmaps = async () => {
     setIsLoading(true);

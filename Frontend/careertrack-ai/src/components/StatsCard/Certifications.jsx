@@ -8,14 +8,13 @@ import {
   Trash2,
   CheckCircle2,
 } from "lucide-react";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function Certifications() {
   const navigate = useNavigate();
   const [certificatesList, setCertificatesList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [certToDelete, setCertToDelete] = useState(null);
-
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   useEffect(() => {
     fetchCertificates();

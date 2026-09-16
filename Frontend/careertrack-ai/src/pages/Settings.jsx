@@ -8,6 +8,7 @@ import {
   KeyRound,
 } from "lucide-react";
 import "./Settings.css";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function Settings() {
   const navigate = useNavigate();
@@ -23,7 +24,6 @@ function Settings() {
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   const handlePasswordChange = (e) => {
     const { name, value } = e.target;

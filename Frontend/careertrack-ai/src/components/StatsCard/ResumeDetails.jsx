@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, FileText, AlertCircle, UploadCloud, RefreshCw } from "lucide-react";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function ResumeDetails() {
   const navigate = useNavigate();
@@ -11,7 +12,6 @@ function ResumeDetails() {
   useEffect(() => {
     fetchScore();
   }, []);
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
   const fetchScore = () => {
     const token = localStorage.getItem("token");
     if (!token) {

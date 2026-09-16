@@ -25,6 +25,7 @@ import StreakDetails from "./components/StatsCard/StreakDetails";
 import AIRecommendationsPage from "./components/AISuggestions/AIRecommendationsPage";
 import OnboardingRouteGuard from "./OnboardingrouteGuard";
 import Landing from "./pages/Landing";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function App() {
   useEffect(() => {
@@ -37,7 +38,6 @@ function App() {
       document.documentElement.classList.add("dark");
     }
   }, []);
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) return;

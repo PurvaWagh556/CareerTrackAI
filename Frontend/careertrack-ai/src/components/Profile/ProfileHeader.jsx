@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaShareAlt, FaLinkedinIn, FaInstagram, FaWhatsapp, FaCopy, FaCheck, FaTimes, FaEdit } from "react-icons/fa";
 import "./ProfileHeader.css";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function ProfileHeader({ profile, onEditClick }) {
   const [showShareModal, setShowShareModal] = useState(false);
@@ -9,7 +10,6 @@ function ProfileHeader({ profile, onEditClick }) {
   const [currentPic, setCurrentPic] = useState(profile?.profilePic || "");
 
   const profileUrl = window.location.href;
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   useEffect(() => {
     if (profile?.profilePic) {

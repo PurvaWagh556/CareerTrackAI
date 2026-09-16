@@ -10,6 +10,7 @@ import {
   FaFire,
 } from "react-icons/fa";
 import ActivityChart from "./ActivityChart";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function DailyCheckinWidget() {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -31,8 +32,6 @@ function DailyCheckinWidget() {
     observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
     return () => observer.disconnect();
   }, []);
-
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   const energyOptions = [
     {

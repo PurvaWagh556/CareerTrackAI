@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Plus, X, FolderGit2, ExternalLink, Trash2, Award, Edit3 } from "lucide-react";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function Projects() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -7,8 +8,6 @@ function Projects() {
   const [projectToDeleteId, setProjectToDeleteId] = useState(null);
   const [editingProjectId, setEditingProjectId] = useState(null);
   const [activeTab, setActiveTab] = useState("All");
-
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
   
   const [projectData, setProjectData] = useState({
     title: "",

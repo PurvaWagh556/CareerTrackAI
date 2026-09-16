@@ -8,6 +8,7 @@ import {
 import { Info, X } from "lucide-react";
 import { FaCheck, FaTimes } from "react-icons/fa";
 import "./OverallProgress.css";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function OverallProgress() {
   const [readinessScore, setReadinessScore] = useState(0);
@@ -22,8 +23,6 @@ function OverallProgress() {
     hasResume: false,
     hasDsaMilestone: false,
   });
-
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   useEffect(() => {
     const fetchReadiness = async () => {

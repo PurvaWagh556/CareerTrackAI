@@ -21,6 +21,7 @@ import {
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis } from "recharts";
 
 import "./WelcomeBanner.css";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function WelcomeBanner() {
   const scrollRef = useRef(null);
@@ -36,8 +37,6 @@ function WelcomeBanner() {
   const [showPopup, setShowPopup] = useState(false);
   const [currentTime, setCurrentTime] = useState("");
   const [currentThought, setCurrentThought] = useState("");
-
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   const professionalThoughts = [
     "Consistency compounds into massive career success. Keep building!",

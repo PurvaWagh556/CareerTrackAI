@@ -9,6 +9,7 @@ import {
   FileText,
   Trash2,
 } from "lucide-react";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function Certificates({ certificates = [], onCertificateAdded }) {
   const [isViewAllOpen, setIsViewAllOpen] = useState(false);
@@ -20,8 +21,6 @@ function Certificates({ certificates = [], onCertificateAdded }) {
   const [certName, setCertName] = useState("");
   const [certIssuer, setCertIssuer] = useState("");
   const [certFile, setCertFile] = useState(null);
-
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   const handleAddCertificate = async (e) => {
     e.preventDefault();

@@ -1,12 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaFilePdf, FaCloudUploadAlt, FaDownload } from "react-icons/fa";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function ResumeCard() {
   const [resume, setResume] = useState(null);
   const [uploading, setUploading] = useState(false);
   const fileInputRef = useRef(null);
-
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   useEffect(() => {
     const token = localStorage.getItem("token");

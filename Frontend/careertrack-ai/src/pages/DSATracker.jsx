@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Code2, CheckCircle2, Clock, AlertCircle, ExternalLink, ArrowLeft, Search, RotateCcw } from "lucide-react";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 function DSATracker() {
   const [activeTopic, setActiveTopic] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -9,8 +10,6 @@ function DSATracker() {
   const [problemsList, setProblemsList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState(null);
-
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   useEffect(() => {
     const token = localStorage.getItem("token");

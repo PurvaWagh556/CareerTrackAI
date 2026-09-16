@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import "./OnboardingForm.css";
 import ProfilePhotoSelector from "./ProfilePhotoSelector";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function OnboardingForm({ initialData, onSubmitSuccess, onCancel }) {
   const [formData, setFormData] = useState({
@@ -39,8 +40,6 @@ function OnboardingForm({ initialData, onSubmitSuccess, onCancel }) {
   const [skillInput, setSkillInput] = useState("");
   const [showSkillDropdown, setShowSkillDropdown] = useState(false);
   const skillDropdownRef = useRef(null);
-
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   const availableSkills = [
     "Python", "Java", "C++", "JavaScript", "C", "HTML & CSS", "Git & GitHub", "OOP", 

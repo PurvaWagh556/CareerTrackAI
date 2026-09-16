@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Plus, X, Code, Server, Award, Database, Cpu, Wrench, Trash2 } from "lucide-react";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function Skills() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [skillToDeleteId, setSkillToDeleteId] = useState(null);
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
   
   const [skillData, setSkillData] = useState({
     name: "",

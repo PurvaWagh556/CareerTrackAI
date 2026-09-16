@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight, FaRegClock, FaRegCalendarAlt } from "react-icons/fa";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function ActivityChart() {
   const [viewMode, setViewMode] = useState("Weekly");
@@ -18,7 +19,6 @@ function ActivityChart() {
     return () => observer.disconnect();
   }, []);
 
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   useEffect(() => {
     const fetchChartData = () => {

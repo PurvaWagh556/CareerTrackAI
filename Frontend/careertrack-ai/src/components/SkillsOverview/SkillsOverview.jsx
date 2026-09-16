@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Terminal, Code2, X, Sparkles, ExternalLink, Search } from "lucide-react";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 const getDocumentationLink = (name) => {
   const lower = name.toLowerCase().trim();
@@ -62,8 +63,6 @@ function SkillsOverview() {
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   useEffect(() => {
     const fetchSkills = async () => {

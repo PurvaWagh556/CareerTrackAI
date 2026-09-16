@@ -9,6 +9,7 @@ import {
   Trash2,
 } from "lucide-react";
 import "./Goals.css";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function Goals() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,8 +24,6 @@ function Goals() {
   const [goalsList, setGoalsList] = useState([]);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [goalToDeleteId, setGoalToDeleteId] = useState(null);
-
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   useEffect(() => {
     fetchGoals();

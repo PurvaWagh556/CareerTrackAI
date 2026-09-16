@@ -7,6 +7,7 @@ import {
   Calendar,
 } from "lucide-react";
 import { FaFire, FaBolt } from "react-icons/fa";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function StreakDetails() {
   const navigate = useNavigate();
@@ -19,7 +20,6 @@ function StreakDetails() {
   const [hoveredDay, setHoveredDay] = useState(null);
 
   const cardRef = useRef(null);
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   useEffect(() => {
     fetchStreakAndActivityData();

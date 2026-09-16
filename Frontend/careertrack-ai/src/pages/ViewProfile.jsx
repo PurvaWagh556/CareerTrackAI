@@ -26,6 +26,7 @@ import {
   FaShareAlt,
 } from "react-icons/fa";
 import "./ViewProfile.css";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function ViewProfile() {
   const navigate = useNavigate();
@@ -33,7 +34,6 @@ function ViewProfile() {
   const [loading, setLoading] = useState(true);
   const [profileData, setProfileData] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   // Database Notes State for Profile Preview Card
   const [notes, setNotes] = useState([]);

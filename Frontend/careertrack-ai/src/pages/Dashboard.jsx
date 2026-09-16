@@ -9,6 +9,7 @@ import OverallProgress from "../components/OverallProgress/OverallProgress";
 import LearningRoadmap from "../components/LearningRoadmap/LearningRoadmap";
 
 import "../layouts/DashboardLayout.css";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function Dashboard() {
   const [isSkillsModalOpen, setIsSkillsModalOpen] = useState(false);
@@ -17,8 +18,6 @@ function Dashboard() {
 
   const [dashboardData, setDashboardData] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");

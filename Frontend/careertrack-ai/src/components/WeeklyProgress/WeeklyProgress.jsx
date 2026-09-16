@@ -10,6 +10,7 @@ import {
 } from "recharts";
 
 import "./WeeklyProgress.css";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function WeeklyProgress() {
   const [weeklyData, setWeeklyData] = useState([
@@ -21,7 +22,6 @@ function WeeklyProgress() {
     { day: "Sat", progress: 0 },
     { day: "Sun", progress: 0 },
   ]);
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   useEffect(() => {
     const fetchWeeklyProgress = async () => {

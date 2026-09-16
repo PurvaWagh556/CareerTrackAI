@@ -28,6 +28,8 @@ import "./navbar.css";
 import ThemeToggle from "../ThemeToggle";
 import dsaQuestionsData from "../../dsaProblems";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+
 function Navbar({ sidebarOpen, toggleSidebar }) {
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const [showBellDropdown, setShowBellDropdown] = useState(false);
@@ -50,7 +52,6 @@ function Navbar({ sidebarOpen, toggleSidebar }) {
   const searchRef = useRef(null);
   const navigate = useNavigate();
 
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   const safeDsaArray = Array.isArray(dsaQuestionsData)
     ? dsaQuestionsData

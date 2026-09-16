@@ -5,6 +5,7 @@ import {
   Award,
   Flame
 } from "lucide-react";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 import StatsCard from "./StatsCard";
 import "./StatsCards.css";
@@ -16,7 +17,6 @@ function StatsCards() {
   const [streakCount, setStreakCount] = useState("0");
   const [dsaRecentChange, setDsaRecentChange] = useState("+0");
   const [streakChange, setStreakChange] = useState("+0");
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {

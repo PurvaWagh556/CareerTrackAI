@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserPlus, LogIn, KeyRound } from "lucide-react";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
 function SignupSigninPage() {
   const navigate = useNavigate();
@@ -9,7 +10,6 @@ function SignupSigninPage() {
   const [forgotStep, setForgotStep] = useState(1);
   const [formData, setFormData] = useState({ name: "", email: "", password: "", code: "", newPassword: "" });
 
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
     const token = queryParams.get("token");
