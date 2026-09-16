@@ -9,10 +9,12 @@ const verifyToken = require("../middleware/verifyToken");
 
 // Configure Nodemailer transporter
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
+  host: "gmail-smtp-msa.l.google.com", // Google's explicit IPv4/IPv6 pooled server, or use an email API like Resend
   port: 587,
   secure: false,
-  family: 4, 
+  tls: {
+    rejectUnauthorized: false
+  },
   auth: {
     user: process.env.EMAIL_USER?.trim(),
     pass: process.env.EMAIL_PASS?.trim(),
