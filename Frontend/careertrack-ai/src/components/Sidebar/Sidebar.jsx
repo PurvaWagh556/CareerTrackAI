@@ -20,9 +20,9 @@ function Sidebar({ isOpen }) {
       path: "/",
     },
     {
-      name: "Skills",
+      name: "Resources",
       icon: <IoSparkles />,
-      path: "/skills",
+      path: "/resources",
     },
     {
       name: "DSA Tracker",

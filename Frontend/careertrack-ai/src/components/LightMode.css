@@ -2511,3 +2511,111 @@ body.light-mode .form-group button[type="button"] {
 body.light-mode .form-group button[type="button"]:hover {
   color: #1E293B !important;
 }
+
+body.light-mode {
+  background-color: #F9FAFB !important;
+  color: #111827 !important;
+}
+
+body.light-mode div[style*="border-radius: 16px"],
+body.light-mode div[style*="borderRadius"],
+body.light-mode div[style*="background-color: #1F2937"],
+body.light-mode div[style*="backgroundColor"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E5E7EB !important;
+  color: #111827 !important;
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+body.light-mode h3 {
+  color: #111827 !important;
+}
+
+body.light-mode div[style*="cursor: pointer"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E5E7EB !important;
+}
+
+body.light-mode div[style*="cursor: pointer"] span {
+  color: #1F2937 !important;
+}
+
+body.light-mode div[style*="cursor: pointer"]:hover {
+  border-color: #7C3AED !important;
+}
+
+body.light-mode input[type="text"] {
+  background-color: #F9FAFB !important;
+  border: 1px solid #D1D5DB !important;
+  color: #111827 !important;
+}
+
+body.light-mode input[type="text"]::placeholder {
+  color: #9CA3AF !important;
+}
+
+body.light-mode a {
+  background-color: #F3F4F6 !important;
+  color: #4B5563 !important;
+  border: 1px solid #E5E7EB !important;
+}
+
+body.light-mode a:hover {
+  border-color: #7C3AED !important;
+  color: #7C3AED !important;
+}
+
+body.light-mode .markdown-body {
+  color: #374151 !important;
+}
+
+body.light-mode .markdown-body h1,
+body.light-mode .markdown-body h2,
+body.light-mode .markdown-body h3 {
+  color: #111827 !important;
+}
+
+body.light-mode .markdown-body h2 {
+  border-bottom: 1px solid #E5E7EB !important;
+}
+
+body.light-mode .markdown-body code {
+  background-color: #F3F4F6 !important;
+  color: #EF4444 !important;
+  border: 1px solid #E5E7EB !important;
+}
+
+body.light-mode button[style*="background-color: rgb(17, 24, 39)"],
+body.light-mode button[style*="backgroundColor: #111827"] {
+  background-color: #FFFFFF !important;
+  color: #111827 !important;
+  border: 1px solid #D1D5DB !important;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+body.light-mode button[style*="background-color: rgb(17, 24, 39)"]:hover,
+body.light-mode button[style*="backgroundColor: #111827"]:hover {
+  background-color: #F3F4F6 !important;
+  border-color: #9CA3AF !important;
+}
+
+body.light-mode p,
+body.light-mode li,
+body.light-mode span,
+body.light-mode .markdown-body p,
+body.light-mode .markdown-body li {
+  color: #374151 !important;
+}
+
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode strong {
+  color: #111827 !important;
+}
+
+body.light-mode div[style*="color: #9CA3AF"],
+body.light-mode div[style*="color: #6B7280"] {
+  color: #4B5563 !important;
+}

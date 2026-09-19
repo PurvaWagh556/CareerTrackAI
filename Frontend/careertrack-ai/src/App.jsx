@@ -10,7 +10,7 @@ import DSATracker from "./pages/DSATracker";
 import Projects from "./pages/Projects";
 import Goals from "./pages/Goals";
 import AiRoadmap from "./pages/AIRoadmap";
-import Skills from "./pages/Skills";
+import Resources from "./pages/Resources";
 import Settings from "./pages/Settings";
 import About from "./components/HelpCenter/About";
 import FAQsAndGuides from "./components/HelpCenter/FAQsAndGuides";
@@ -116,7 +116,7 @@ function App() {
           >
             <Route path="/" element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/skills" element={<Skills />} />
+            <Route path="/resources" element={<Resources />} />
             <Route path="/dsa-tracker" element={<DSATracker />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/goals" element={<Goals />} />

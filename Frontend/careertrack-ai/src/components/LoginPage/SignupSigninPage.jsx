@@ -198,7 +198,7 @@ function SignupSigninPage() {
         
         <p style={{ fontSize: "14px", lineHeight: "1.6", marginBottom: "24px", color: "#9CA3AF" }}>
           {isForgot 
-            ? (forgotStep === 1 ? "Enter your registered email to receive a verification code, myau!" : "Enter the code sent to your email and your new password.")
+            ? (forgotStep === 1 ? "Enter your registered email to receive a verification code!" : "Enter the code sent to your email and your new password.")
             : (isSignUp ? "Sign up to start tracking your career milestones and full-stack projects." : "Log in to your account to continue tracking your roadmap goals.")}
         </p>
 
