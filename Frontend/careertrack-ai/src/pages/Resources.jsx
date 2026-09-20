@@ -297,7 +297,7 @@ function Resources() {
         }}
       >
         <a
-          href="[https://leetcode.com](https://leetcode.com)"
+          href="https://leetcode.com"
           target="_blank"
           rel="noopener noreferrer"
           style={quickLinkStyle}
@@ -305,7 +305,7 @@ function Resources() {
           LeetCode <ExternalLink size={13} />
         </a>
         <a
-          href="[https://neetcode.io](https://neetcode.io)"
+          href="https://neetcode.io"
           target="_blank"
           rel="noopener noreferrer"
           style={quickLinkStyle}
@@ -313,7 +313,7 @@ function Resources() {
           NeetCode.io <ExternalLink size={13} />
         </a>
         <a
-          href="[https://www.geeksforgeeks.org](https://www.geeksforgeeks.org)"
+          href="https://www.geeksforgeeks.org"
           target="_blank"
           rel="noopener noreferrer"
           style={quickLinkStyle}
@@ -321,7 +321,7 @@ function Resources() {
           GeeksforGeeks <ExternalLink size={13} />
         </a>
         <a
-          href="[https://github.com](https://github.com)"
+          href="https://github.com"
           target="_blank"
           rel="noopener noreferrer"
           style={quickLinkStyle}
