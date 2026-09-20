@@ -213,58 +213,6 @@ router.get("/skills-progress", verifyToken, async (req, res) => {
 });
 
 
-router.get("/streak", verifyToken, async (req, res) => {
-  try {
-    const userId = req.user.userId || req.user.id || req.user._id;
-    const user = await User.findById(userId);
-    if (!user) return res.status(404).json({ error: "User not found" });
-
-    const checkedDays = user.checkedDays || {};
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = now.getMonth();
-    const totalDaysInMonth = new Date(year, month + 1, 0).getDate();
-
-    let activeDaysInMonth = 0;
-    Object.keys(checkedDays).forEach((dateKey) => {
-      const [dYear, dMonth] = dateKey.split("-").map(Number);
-      if (dYear === year && dMonth === month + 1) {
-        const record = checkedDays[dateKey];
-        if (record) activeDaysInMonth++;
-      }
-    });
-
-    const consistencyPercent = totalDaysInMonth > 0 ? Math.round((activeDaysInMonth / totalDaysInMonth) * 100) : 0;
-
-    let streak = 0;
-    let checkDate = new Date();
-    const getDateKey = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
-    
-    let todayKey = getDateKey(checkDate);
-    if (!checkedDays[todayKey]) {
-      checkDate.setDate(checkDate.getDate() - 1);
-      todayKey = getDateKey(checkDate);
-      if (!checkedDays[todayKey]) {
-        return res.json({ streak: 0, consistency: consistencyPercent, checkedDays });
-      }
-    }
-
-    while (true) {
-      const key = getDateKey(checkDate);
-      if (checkedDays[key]) {
-        streak++;
-        checkDate.setDate(checkDate.getDate() - 1);
-      } else {
-        break;
-      }
-    }
-
-    res.json({ streak, consistency: consistencyPercent, checkedDays });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
 router.get("/notifications", verifyToken, async (req, res) => {
   try {
     const userId = req.user.userId || req.user.id || req.user._id;

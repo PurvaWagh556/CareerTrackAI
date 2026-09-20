@@ -208,7 +208,6 @@ app.post("/api/profile", verifyToken, uploadMemory.any(), async (req, res) => {
     const userId = req.user.userId || req.user.id || req.user._id;
     const profileData = { ...req.body };
 
-    // 1. Parse skills back into an array if they were sent as a JSON string from FormData
     if (profileData.skills && typeof profileData.skills === "string") {
       try {
         profileData.skills = JSON.parse(profileData.skills);
@@ -217,7 +216,6 @@ app.post("/api/profile", verifyToken, uploadMemory.any(), async (req, res) => {
       }
     }
 
-    // 2. Handle uploaded resume file if present
     if (req.files && req.files.length > 0) {
       const resumeFile = req.files.find(f => f.fieldname === "resume");
       if (resumeFile) {
@@ -231,7 +229,6 @@ app.post("/api/profile", verifyToken, uploadMemory.any(), async (req, res) => {
       }
     }
 
-    // 3. Find or create profile using strict userId reference matching your schema
     let profile = await UserProfile.findOne({ userId });
     
     if (!profile) {
@@ -246,7 +243,6 @@ app.post("/api/profile", verifyToken, uploadMemory.any(), async (req, res) => {
     
     await profile.save();
 
-    // 4. Explicitly mark user profile as complete so guards don't loop
     await User.findByIdAndUpdate(userId, { isProfileComplete: true });
 
     res.status(200).json({ success: true, message: "Profile saved successfully!", profile });
@@ -273,7 +269,6 @@ const calculateStreak = (checkedDays) => {
   let record = checkedDays[key];
   let isActive = record && (typeof record === 'object' ? (record.duration > 0 || record.energy) : Number(record) > 0);
 
-  // If today isn't checked yet, check yesterday to see if a streak is active
   if (!isActive) {
     curr.setDate(curr.getDate() - 1);
     key = formatDateKey(curr);
@@ -306,13 +301,34 @@ app.get("/api/streak", verifyToken, async (req, res) => {
     if (!user) {
       return res.status(404).json({ success: false, error: "User not found" });
     }
+    let checkedDays = user.checkedDays;
+    if (checkedDays instanceof Map) {
+      checkedDays = Object.fromEntries(checkedDays);
+    }
+    checkedDays = checkedDays || {};
 
-    const calculatedStreak = calculateStreak(user.checkedDays);
+    const calculatedStreak = typeof calculateStreak === "function" ? calculateStreak(checkedDays) : 0;
+
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth();
+    const totalDaysInMonth = new Date(year, month + 1, 0).getDate();
+
+    let activeDaysInMonth = 0;
+    Object.keys(checkedDays).forEach((dateKey) => {
+      const [dYear, dMonth] = dateKey.split("-").map(Number);
+      if (dYear === year && dMonth === month + 1) {
+        if (checkedDays[dateKey]) activeDaysInMonth++;
+      }
+    });
+
+    const consistency = totalDaysInMonth > 0 ? Math.round((activeDaysInMonth / totalDaysInMonth) * 100) : 0;
 
     res.status(200).json({
       success: true,
       streak: calculatedStreak,
-      checkedDays: user.checkedDays || {}
+      consistency,
+      checkedDays
     });
   } catch (err) {
     console.error("Error fetching streak:", err);
@@ -454,7 +470,7 @@ app.use(express.static(path.resolve(__dirname, "../Frontend/careertrack-ai/dist"
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Connect to MongoDB & Start Server
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log("Connected to MongoDB successfully!");
     const PORT = process.env.PORT || 8080;
