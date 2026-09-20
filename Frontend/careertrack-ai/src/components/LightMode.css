@@ -2547,12 +2547,6 @@ body.light-mode input[type="text"] {
 body.light-mode input[type="text"]::placeholder {
   color: #9CA3AF !important;
 }
-/* 
-body.light-mode a {
-  background-color: #F3F4F6 !important;
-  color: #4B5563 !important;
-  border: 1px solid #E5E7EB !important;
-} */
 
 body.light-mode a:hover {
   border-color: #7C3AED !important;
@@ -2688,5 +2682,19 @@ body.light-mode .social-links .label-pill {
 body.light-mode .social-links svg + span,
 body.light-mode .social-links .platform-name {
   font-weight: 600 !important;
+  color: #0f172a !important;
+}
+
+body.light-mode div[style*="background-color: rgb(17, 24, 39)"],
+body.light-mode div[style*="background-color: #111827"],
+body.light-mode div[style*="background-color: rgb(17 24 39)"] {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+body.light-mode div[style*="background-color: rgb(17, 24, 39)"] span,
+body.light-mode div[style*="background-color: #111827"] span,
+body.light-mode div[style*="background-color: rgb(17 24 39)"] span {
   color: #0f172a !important;
 }
