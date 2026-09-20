@@ -679,8 +679,7 @@ body.light-mode div[style*="rgb(46, 46, 66)"] {
 }
 
 body.light-mode div[style*="background: #2E2E42"] svg,
-body.light-mode div[style*="background-color: #2E2E42"] svg,
-body.light-mode div[style*="rgb(46, 46, 66)"] svg {
+body.light-mode div[style*="background-color: #2E2E42"] svg {
   color: #7C3AED !important;
   stroke: #7C3AED !important;
 }
@@ -1906,7 +1905,7 @@ body.light-mode div[style*="padding: 28px"] button.topic-grid-btn:not(.active) >
 
 body.light-mode div[style*="padding: 28px"] button.topic-grid-btn:not(.active) > div > span:last-child[style*="34D399" i],
 body.light-mode div[style*="padding: 28px"] button.topic-grid-btn:not(.active) > div > span:last-child[style*="52, 211, 153"] {
-  color: #059669 !important; 
+  color: #26cf9b !important; 
 }
 
 body.light-mode div[style*="padding: 28px"] button.topic-grid-btn:not(.active):hover {
@@ -2531,10 +2530,9 @@ body.light-mode h3 {
   color: #111827 !important;
 }
 
-body.light-mode div[style*="cursor: pointer"] {
+/* body.light-mode div[style*="cursor: pointer"] {
   background-color: #FFFFFF !important;
-  border: 1px solid #E5E7EB !important;
-}
+} */
 
 body.light-mode div[style*="cursor: pointer"] span {
   color: #1F2937 !important;
@@ -2553,12 +2551,12 @@ body.light-mode input[type="text"] {
 body.light-mode input[type="text"]::placeholder {
   color: #9CA3AF !important;
 }
-
+/* 
 body.light-mode a {
   background-color: #F3F4F6 !important;
   color: #4B5563 !important;
   border: 1px solid #E5E7EB !important;
-}
+} */
 
 body.light-mode a:hover {
   border-color: #7C3AED !important;
@@ -2618,4 +2616,91 @@ body.light-mode strong {
 body.light-mode div[style*="color: #9CA3AF"],
 body.light-mode div[style*="color: #6B7280"] {
   color: #4B5563 !important;
+}
+
+
+/* 1. Ensure sidebar/menu links don't have unwanted background blocks or borders */
+body.light-mode .sidebar a,
+body.light-mode .menu-item {
+  background-color: transparent !important;
+  border: none !important;
+  color: #4B5563 !important;
+}
+
+/* 2. Style only the active or hovered menu item cleanly */
+body.light-mode .menu-item.active,
+body.light-mode .menu-item:hover {
+  background-color: #ede9fe !important; /* Soft light purple highlight */
+  color: #7c3aed !important;
+}
+
+/* 3. Keep borders/backgrounds strictly for actual content cards (not links) */
+body.light-mode .onboarding-card,
+body.light-mode .modal-content,
+body.light-mode .analytics-box {
+  background-color: #ffffff !important;
+  border: 1px solid #f1f5f9 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* Target external resource buttons by their destination links in light mode */
+body.light-mode a[href*="leetcode"],
+body.light-mode a[href*="neetcode"],
+body.light-mode a[href*="geeksforgeeks"],
+body.light-mode a[href*="github"],
+body.light-mode a[href*="target"],
+body.light-mode .notes-content a {
+  background-color: #f8fafc !important;
+  color: #6D28D9  !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Hover state for those resource links */
+body.light-mode a[href*="leetcode"]:hover,
+body.light-mode a[href*="neetcode"]:hover,
+body.light-mode a[href*="geeksforgeeks"]:hover,
+body.light-mode a[href*="github"]:hover,
+body.light-mode .notes-content a:hover {
+  background-color: #f1f5f9 !important;
+  color: #7c3aed !important;
+}
+
+/* Only style pointer divs that DO NOT have an inline background color */
+body.light-mode div[style*="cursor: pointer"]:not([style*="background-color"]) {
+  background-color: #FFFFFF !important;
+}
+
+/* 1. Unify every social link row container */
+body.light-mode .social-links div > div,
+body.light-mode .social-link-item,
+body.light-mode .social-row {
+  background-color: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  padding: 10px 16px !important;
+  margin-bottom: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  box-shadow: none !important;
+}
+
+/* 2. Strip out inner nested white box/pill styling from labels and inputs */
+body.light-mode .social-links input,
+body.light-mode .social-links span,
+body.light-mode .social-links .badge,
+body.light-mode .social-links .label-pill {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: #334155 !important;
+}
+
+/* 3. Give the platform name styling consistency */
+body.light-mode .social-links svg + span,
+body.light-mode .social-links .platform-name {
+  font-weight: 600 !important;
+  color: #0f172a !important;
 }
