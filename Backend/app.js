@@ -431,23 +431,39 @@ app.post("/api/support", async (req, res) => {
     });
     await newTicket.save();
 
-    const formSource = source === "Support Page" ? "Support Ticket 🎟️" : "Contact Message 📬";
+    const formSource = source === "Support Page" ? "Support Ticket" : "Contact Message";
     
-    await fetch("https://api.resend.com/emails", {
+    const response = await fetch("https://api.brevo.com/v3/smtp/email", {
       method: "POST",
       headers: {
+        "Accept": "application/json",
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${process.env.RESEND_API_KEY}`,
-        "User-Agent": "CareerTrackApp/1.0"
+        "api-key": process.env.BREVO_API_KEY,
       },
       body: JSON.stringify({
-        from: "onboarding@resend.dev", 
-        to: process.env.EMAIL_USER,
-        reply_to: email,
+        sender: {
+          email: process.env.EMAIL_USER,
+          name: "CareerTrackAI",
+        },
+        to: [{ email: process.env.EMAIL_USER, name: "Admin" }],
+        replyTo: { email: email, name: name || "User" },
         subject: `New ${formSource} from ${name || "User"}`,
-        text: `You received a new submission from your dashboard (${source || "Website"}):\n\nSender Name: ${name}\nSender Email: ${email}\n\nMessage:\n${message}`
-      })
+        textContent: `You received a new submission from your dashboard (${source || "Website"}):\n\nSender Name: ${name}\nSender Email: ${email}\n\nMessage:\n${message}`,
+        htmlContent: `
+          <p>You received a new submission from your dashboard (${source || "Website"}):</p>
+          <p><strong>Sender Name:</strong> ${name}</p>
+          <p><strong>Sender Email:</strong> ${email}</p>
+          <p><strong>Message:</strong><br>${message}</p>
+        `,
+      }),
     });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      console.error("Brevo API Error:", data);
+      return res.status(500).json({ success: false, error: "Failed to send email" });
+    }
 
     res.status(200).json({ success: true, message: "Ticket saved and sent successfully!" });
   } catch (error) {
@@ -470,7 +486,7 @@ app.use(express.static(path.resolve(__dirname, "../Frontend/careertrack-ai/dist"
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Connect to MongoDB & Start Server
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log("Connected to MongoDB successfully!");
     const PORT = process.env.PORT || 8080;

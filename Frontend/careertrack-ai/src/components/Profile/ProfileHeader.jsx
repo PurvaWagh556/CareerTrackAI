@@ -32,8 +32,8 @@ function ProfileHeader({ profile, onEditClick }) {
     return name.substring(0, 2).toUpperCase();
   };
 
-  const fullName = profile?.fullName || profile?.username || "Purva Wagh";
-  const headline = profile?.headline || "Computer Engineering Student & Developer";
+  const fullName = profile?.fullName || profile?.username || "Anonymous";
+  const headline = profile?.headline || "Student";
   const location = profile?.location || "Nagpur, India";
   const initials = getInitials(fullName);
 

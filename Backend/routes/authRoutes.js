@@ -3,21 +3,25 @@ const router = express.Router();
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
-const User = require("../models/User"); 
-const verifyToken = require("../middleware/verifyToken"); 
+const User = require("../models/User");
+const verifyToken = require("../middleware/verifyToken");
 
 // Helper function to hash passwords using crypto
 const hashPassword = (password) => {
   const salt = crypto.randomBytes(16).toString("hex");
-  const hash = crypto.pbkdf2Sync(password, salt, 1000, 64, "sha512").toString("hex");
+  const hash = crypto
+    .pbkdf2Sync(password, salt, 1000, 64, "sha512")
+    .toString("hex");
   return `${salt}:${hash}`;
 };
 
 // Helper function to verify passwords using crypto
 const verifyPassword = (password, storedPassword) => {
   const [salt, key] = storedPassword.split(":");
-  if (!salt || !key) return false; 
-  const hashedBuffer = crypto.pbkdf2Sync(password, salt, 1000, 64, "sha512").toString("hex");
+  if (!salt || !key) return false;
+  const hashedBuffer = crypto
+    .pbkdf2Sync(password, salt, 1000, 64, "sha512")
+    .toString("hex");
   return key === hashedBuffer;
 };
 
@@ -27,29 +31,42 @@ router.post("/register", async (req, res) => {
   try {
     const { username, email, password } = req.body;
     if (!email || !password) {
-      return res.status(400).json({ success: false, error: "Email and password are required" });
+      return res
+        .status(400)
+        .json({ success: false, error: "Email and password are required" });
     }
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(400).json({ success: false, error: "User already exists with this email" });
+      return res
+        .status(400)
+        .json({ success: false, error: "User already exists with this email" });
     }
 
     const hashedPassword = hashPassword(password);
 
     const defaultRoadmap = [
-      { month: "Month 1", topics: ["DSA Basics", "Arrays & Strings", "OOP Concepts"] },
-      { month: "Month 2", topics: ["Trees & Graphs", "Database Basics", "SQL Practice"] },
+      {
+        month: "Month 1",
+        topics: ["DSA Basics", "Arrays & Strings", "OOP Concepts"],
+      },
+      {
+        month: "Month 2",
+        topics: ["Trees & Graphs", "Database Basics", "SQL Practice"],
+      },
       { month: "Month 3", topics: ["React.js", "Projects", "System Design"] },
-      { month: "Month 4", topics: ["Mock Interviews", "Resume Preparation", "Job Applications"] }
+      {
+        month: "Month 4",
+        topics: ["Mock Interviews", "Resume Preparation", "Job Applications"],
+      },
     ];
 
     const newUser = new User({
       username,
       email,
       password: hashedPassword,
-      isProfileComplete: false, 
-      roadmap: defaultRoadmap,  
+      isProfileComplete: false,
+      roadmap: defaultRoadmap,
     });
     await newUser.save();
 
@@ -83,17 +100,23 @@ router.post("/login", async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.status(400).json({ success: false, error: "All fields are required" });
+      return res
+        .status(400)
+        .json({ success: false, error: "All fields are required" });
     }
 
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ success: false, error: "Invalid email or password" });
+      return res
+        .status(400)
+        .json({ success: false, error: "Invalid email or password" });
     }
 
     const isMatch = verifyPassword(password, user.password);
     if (!isMatch) {
-      return res.status(400).json({ success: false, error: "Invalid email or password" });
+      return res
+        .status(400)
+        .json({ success: false, error: "Invalid email or password" });
     }
 
     const token = jwt.sign(
@@ -113,7 +136,9 @@ router.post("/login", async (req, res) => {
     });
   } catch (error) {
     console.error("Login error:", error);
-    res.status(500).json({ success: false, error: "Server error during login" });
+    res
+      .status(500)
+      .json({ success: false, error: "Server error during login" });
   }
 });
 
@@ -123,41 +148,49 @@ router.post("/forgot-password", async (req, res) => {
     const user = await User.findOne({ email: req.body.email });
     if (!user) return res.status(404).json({ error: "User not found" });
 
-    // Generate the resetCode
-    const resetCode = Math.floor(100000 + Math.random() * 900000).toString(); 
+    const resetCode = Math.floor(100000 + Math.random() * 900000).toString();
 
-    // SAVE the code to the database so /reset-password can check it later
     user.resetPasswordToken = resetCode;
-    user.resetPasswordExpires = Date.now() + 15 * 60 * 1000; // Expires in 15 minutes
+    user.resetPasswordExpires = Date.now() + 10 * 60 * 1000;
     await user.save();
 
-    const response = await fetch("https://api.resend.com/emails", {
+    const response = await fetch("https://api.brevo.com/v3/smtp/email", {
       method: "POST",
       headers: {
+        Accept: "application/json",
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${process.env.RESEND_API_KEY}`,
-        "User-Agent": "CareerTrackApp/1.0"
+        "api-key": process.env.BREVO_API_KEY,
       },
       body: JSON.stringify({
-        from: "onboarding@resend.dev", 
-        to: user.email, 
-        subject: "Password Reset Code",
-        html: `<p>Your password reset code is: <strong>${resetCode}</strong></p>`
-      })
+        sender: {
+          email: process.env.EMAIL_USER,
+          name: "CareerTrackAI",
+        },
+        to: [{ email: user.email, name: user.username || "User" }],
+        subject: "Password Reset Verification Code",
+        htmlContent: `
+          <p>Hello ${user.username || "User"},</p>
+          <p>Your password reset code is: <strong>${resetCode}</strong></p>
+          <p>This code will expire in 10 minutes.</p>
+        `,
+      }),
     });
 
     const data = await response.json();
 
     if (!response.ok) {
-      console.error("Resend Error:", data);
-      return res.status(500).json({ success: false, error: "Failed to send reset email" });
+      console.error("Brevo API Error:", data);
+      return status(400).json({ 
+        success: false, 
+        error: data.message || "Failed to send reset email" 
+      });
     }
 
     res.status(200).json({ success: true, message: "Reset email sent successfully!" });
 
   } catch (error) {
-     console.error("Forgot password error:", error);
-     res.status(500).json({ error: "Server error" });
+    console.error("Forgot password error:", error);
+    res.status(500).json({ error: "Server error" });
   }
 });
 
@@ -166,7 +199,9 @@ router.post("/reset-password", async (req, res) => {
     const { email, code, newPassword } = req.body;
 
     if (!email || !code || !newPassword) {
-      return res.status(400).json({ success: false, error: "All fields are required" });
+      return res
+        .status(400)
+        .json({ success: false, error: "All fields are required" });
     }
 
     const user = await User.findOne({
@@ -194,7 +229,9 @@ router.post("/reset-password", async (req, res) => {
     });
   } catch (error) {
     console.error("Reset password error:", error);
-    res.status(500).json({ success: false, error: "Server error during password reset" });
+    res
+      .status(500)
+      .json({ success: false, error: "Server error during password reset" });
   }
 });
 
@@ -206,21 +243,25 @@ router.post("/logout", verifyToken, (req, res) => {
     });
   } catch (error) {
     console.error("Logout error:", error);
-    res.status(500).json({ success: false, error: "Server error during logout" });
+    res
+      .status(500)
+      .json({ success: false, error: "Server error during logout" });
   }
 });
 
 // --- GOOGLE OAUTH ---
-
-router.get("/google",
-  passport.authenticate("google", { scope: ["profile", "email"] })
+router.get(
+  "/google",
+  passport.authenticate("google", { scope: ["profile", "email"] }),
 );
 
-const FRONTEND_URL = process.env.NODE_ENV === 'production'
-  ? 'https://career-track-ai-eight.vercel.app'
-  : 'http://localhost:5173';
+const FRONTEND_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://career-track-ai-eight.vercel.app"
+    : "http://localhost:5173";
 
-router.get("/google/callback",
+router.get(
+  "/google/callback",
   passport.authenticate("google", {
     failureRedirect: `${FRONTEND_URL}/login`,
     session: false,
@@ -234,7 +275,7 @@ router.get("/google/callback",
           username: req.user.username,
         },
         process.env.JWT_SECRET,
-        { expiresIn: "7d" }
+        { expiresIn: "7d" },
       );
       // Redirect back to Vercel with the token
       res.redirect(`${FRONTEND_URL}/login?token=${token}`);
@@ -243,7 +284,7 @@ router.get("/google/callback",
       // Redirect back to Vercel on error
       res.redirect(`${FRONTEND_URL}/login`);
     }
-  }
+  },
 );
 
 module.exports = router;
