@@ -486,7 +486,7 @@ app.use(express.static(path.resolve(__dirname, "../Frontend/careertrack-ai/dist"
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Connect to MongoDB & Start Server
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log("Connected to MongoDB successfully!");
     const PORT = process.env.PORT || 8080;
