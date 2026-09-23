@@ -13,30 +13,39 @@ import "./Landing.css";
 function Landing() {
   const navigate = useNavigate();
 
+  const checkAuthAndNavigate = (defaultRoute) => {
+    const token = localStorage.getItem("token") || localStorage.getItem("user");
+    if (token) {
+      navigate("/dashboard");
+    } else {
+      navigate(defaultRoute);
+    }
+  };
+
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: "#0B0B12", color: "#FFFFFF", opacity: 1 }} className="landing-container">
+    <div className="landing-container">
       {/* Top Navigation */}
       <header className="landing-header">
         <div className="brand-logo" onClick={() => navigate("/")}>
           <div className="brand-icon">
             <Cat size={22} color="#8B5CF6" />
           </div>
-          <span style={{ color: "#FFFFFF", opacity: 1, fontSize: "20px", fontWeight: 700 }}>
-            CareerTrack <span style={{ color: "#8B5CF6" }}>AI</span>
+          <span className="brand-title" style={{ color: "#FFFFFF" }}>
+            CareerTrack <span style={{ color: "#8B5CF6", fontWeight: "750" }}>AI</span>
           </span>
         </div>
 
         <div className="auth-nav">
           <button
             type="button"
-            onClick={() => navigate("/login")}
+            onClick={() => checkAuthAndNavigate("/login")}
             className="btn-signin"
           >
             Sign In
           </button>
           <button
             type="button"
-            onClick={() => navigate("/signup")}
+            onClick={() => checkAuthAndNavigate("/signup")}
             className="btn-primary"
           >
             Get Started <ArrowRight size={15} />
@@ -47,35 +56,33 @@ function Landing() {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="pill-tag">
-          <Sparkles size={14} color="#8B5CF6" /> Placement Readiness & AI Roadmap Suite
+          <Sparkles size={14} color="#8B5CF6" /> AI-Powered Placement Suite
         </div>
 
-        <h1 style={{ color: "#FFFFFF", opacity: 1 }} className="hero-title">
-          Master Technical Roadmaps. <br />
+        <h1 className="hero-title">
+          Master Roadmaps. <br />
           Track DSA.{" "}
           <span className="hero-gradient">
             Land the Role.
           </span>
         </h1>
 
-        <p style={{ color: "#F1F5F9", opacity: 1, fontSize: "16px", lineHeight: "1.65", maxWidth: "680px", margin: "0 auto 38px auto" }}>
-          Stop second-guessing your placement preparation. CareerTrack AI compares your
-          target software role with your current skills, plots milestone roadmaps, and
-          measures your career readiness in one cohesive dashboard.
+        <p className="hero-subtitle">
+          Your personal dashboard to track coding consistency, bridge skill gaps, and prep for tech roles.
         </p>
 
         <div className="hero-cta-group">
           <button
             type="button"
-            onClick={() => navigate("/signup")}
+            onClick={() => checkAuthAndNavigate("/signup")}
             className="btn-hero-primary"
           >
-            Build Your Roadmap Free <ArrowRight size={17} />
+            Get Started Free <ArrowRight size={17} />
           </button>
 
           <button
             type="button"
-            onClick={() => navigate("/login")}
+            onClick={() => checkAuthAndNavigate("/dashboard")}
             className="btn-hero-secondary"
           >
             Explore Dashboard
@@ -87,44 +94,35 @@ function Landing() {
       <section className="feature-section">
         <div className="feature-grid">
           {/* Card 1 */}
-          <div className="feature-card" style={{ backgroundColor: "#13101E", opacity: 1 }}>
+          <div className="feature-card">
             <div className="feature-icon-box">
               <Compass size={22} color="#8B5CF6" />
             </div>
-            <h3 style={{ color: "#FFFFFF", opacity: 1, fontSize: "18px", fontWeight: 700, margin: 0 }}>
-              Tailored Roadmaps
-            </h3>
-            <p style={{ color: "#F1F5F9", opacity: 1, fontSize: "14px", lineHeight: 1.6, margin: 0 }}>
-              Benchmarked directly against standard industry expectations for Full-Stack,
-              Backend, Frontend, and Machine Learning engineering roles.
+            <h3>Smart Roadmaps</h3>
+            <p>
+              Step-by-step tech paths built for Full-Stack, Backend, and AI/ML roles.
             </p>
           </div>
 
           {/* Card 2 */}
-          <div className="feature-card" style={{ backgroundColor: "#13101E", opacity: 1 }}>
+          <div className="feature-card">
             <div className="feature-icon-box">
               <Code2 size={22} color="#8B5CF6" />
             </div>
-            <h3 style={{ color: "#FFFFFF", opacity: 1, fontSize: "18px", fontWeight: 700, margin: 0 }}>
-              DSA & Consistency Tracker
-            </h3>
-            <p style={{ color: "#F1F5F9", opacity: 1, fontSize: "14px", lineHeight: 1.6, margin: 0 }}>
-              Log algorithm milestones, track practice streaks, and maintain problem-solving
-              momentum across LeetCode and HackerRank workflows.
+            <h3>DSA & Streaks</h3>
+            <p>
+              Log your algorithm progress and maintain daily problem-solving momentum.
             </p>
           </div>
 
           {/* Card 3 */}
-          <div className="feature-card" style={{ backgroundColor: "#13101E", opacity: 1 }}>
+          <div className="feature-card">
             <div className="feature-icon-box">
               <Trophy size={22} color="#8B5CF6" />
             </div>
-            <h3 style={{ color: "#FFFFFF", opacity: 1, fontSize: "18px", fontWeight: 700, margin: 0 }}>
-              Career Readiness Score
-            </h3>
-            <p style={{ color: "#F1F5F9", opacity: 1, fontSize: "14px", lineHeight: 1.6, margin: 0 }}>
-              Instantly identify profile gaps across your projects, credentials, and resume
-              documentation before applying to technical positions.
+            <h3>Readiness Score</h3>
+            <p>
+              Check your profile and resume gaps before applying to companies.
             </p>
           </div>
         </div>
@@ -132,32 +130,29 @@ function Landing() {
 
       {/* Bottom CTA Banner */}
       <section className="bottom-cta-banner">
-        <div style={{ maxWidth: "620px", margin: "0 auto" }}>
-          <h2 style={{ color: "#FFFFFF", opacity: 1, fontSize: "24px", fontWeight: 700, marginBottom: "12px" }}>
-            Ready to streamline your placement journey?
-          </h2>
-          <p style={{ color: "#F1F5F9", opacity: 1, fontSize: "14px", marginBottom: "24px" }}>
-            Join developers using CareerTrack AI to organize their milestone roadmaps and interview preparation.
+        <div className="bottom-cta-content">
+          <h2>Ready to start building?</h2>
+          <p>
+            Organize your interview prep and roadmap in one place.
           </p>
           <button
             type="button"
-            onClick={() => navigate("/signup")}
-            className="btn-primary"
-            style={{ margin: "0 auto" }}
+            onClick={() => checkAuthAndNavigate("/signup")}
+            className="btn-primary cta-center-btn"
           >
-            Create Your Account
+            Create Account
           </button>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="landing-footer">
-        <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#F1F5F9", opacity: 1 }}>
+        <div className="footer-left">
           <Cat size={16} color="#8B5CF6" />
           <span>© {new Date().getFullYear()} CareerTrack AI. All rights reserved.</span>
         </div>
-        <div style={{ color: "#F1F5F9", opacity: 1 }}>
-          <span>Designed for engineers targeting top-tier tech roles.</span>
+        <div className="footer-right">
+          <span>Built for developers & AI enthusiasts.</span>
         </div>
       </footer>
     </div>
