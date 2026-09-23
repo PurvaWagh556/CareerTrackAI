@@ -65,5 +65,5 @@ Make sure you have **Node.js** and **Git** installed on your system.
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/your-username/CareerTrackAI.git](https://github.com/your-username/CareerTrackAI.git)
+git clone [https://github.com/PurvaWagh556/CareerTrackAI.git](https://github.com/PurvaWagh556/CareerTrackAI.git)
 cd CareerTrackAI
