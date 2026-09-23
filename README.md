@@ -62,9 +62,7 @@ Balancing consistency, skill-building, and project learning can often feel overw
 
 | Light / Dark Dashboard | AI Notes Generator |
 | :---: | :---: |
-| <img width="958" height="467" alt="Screenshot 2026-09-20 144555" src="https://github.com/user-attachments/assets/7d3dcdb9-eed3-4cef-917d-268b2349df12" />
- | <img width="953" height="469" alt="Screenshot 2026-09-20 144719" src="https://github.com/user-attachments/assets/bd9244d1-04fc-450c-9ba9-a130b8abf0a3" />
- |
+| <img width="958" height="467" alt="CareerTrackAI Dashboard" src="https://github.com/user-attachments/assets/21f27e52-4d8b-4019-af44-f7a169b94f67" /> | <img width="953" height="469" alt="CareerTrackAI AI Notes" src="https://github.com/user-attachments/assets/da2dc1cd-798f-4c87-b243-d1c340440bc5" /> |
 
 ---
 
