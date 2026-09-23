@@ -38,14 +38,14 @@ function Landing() {
         <div className="auth-nav">
           <button
             type="button"
-            onClick={() => checkAuthAndNavigate("/login")}
+            onClick={() => navigate("/login")} 
             className="btn-signin"
           >
             Sign In
           </button>
           <button
             type="button"
-            onClick={() => checkAuthAndNavigate("/signup")}
+            onClick={() => navigate("/signup")} 
             className="btn-primary"
           >
             Get Started <ArrowRight size={15} />
