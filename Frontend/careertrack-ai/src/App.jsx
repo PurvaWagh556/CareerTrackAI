@@ -98,12 +98,6 @@ function App() {
   }, []);
 
   return (
-    <>
-    <main>
-      {/* Google's crawler gives massive priority to text inside the h1 tag! */}
-      <h1>Welcome to CareerTrackAI</h1>
-      <p>Your AI-powered career and study platform.</p>
-    </main>
     <div className="min-h-screen bg-white text-black dark:bg-[#09090b] dark:text-white">
       <BrowserRouter>
         <Routes>
@@ -150,7 +144,6 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
-    </>
   );
 }
 
