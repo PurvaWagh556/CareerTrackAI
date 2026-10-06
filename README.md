@@ -11,7 +11,7 @@
 
 *Master Data Structures & Algorithms, maintain daily coding consistency, generate AI study notes, and track your job readiness in one interactive workspace.*
 
-[View Live App](https://your-vercel-link.com) · [Report Bug](../../issues) · [Request Feature](../../issues)
+[View Live App](https://career-track-ai-eight.vercel.app/home) · [Report Bug](../../issues) · [Request Feature](../../issues)
 
 </div>
 
